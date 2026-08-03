@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" role="img" aria-label="Erste Hilfe Duderstadt">
+  <defs>
+    <linearGradient id="ehdG" x1="6" y1="2" x2="42" y2="46" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2BD2D2"/><stop offset=".48" stop-color="#0B9797"/><stop offset="1" stop-color="#0F5F5F"/>
+    </linearGradient>
+    <linearGradient id="ehdGloss" x1="4" y1="0" x2="30" y2="30" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity=".34"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="48" height="48" rx="13.5" fill="url(#ehdG)"/>
+  <path d="M0 13.5A13.5 13.5 0 0 1 13.5 0H48v20L0 34Z" fill="url(#ehdGloss)"/>
+  <rect x="20.75" y="8" width="6.5" height="24" rx="3.25" fill="#fff"/>
+  <rect x="12" y="16.75" width="24" height="6.5" rx="3.25" fill="#fff"/>
+  <path d="M8 39.5h10l2.5-5 3 9.5 2.5-4.5h14" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

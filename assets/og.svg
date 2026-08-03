@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+<stop offset="0" stop-color="#12B8B8"/><stop offset=".55" stop-color="#0B9797"/><stop offset="1" stop-color="#114E4E"/>
+</linearGradient>
+</defs>
+<rect width="1200" height="630" fill="url(#bg)"/>
+<g transform="translate(96,150)">
+<rect x="0" y="0" width="112" height="112" rx="31" fill="#fff" fill-opacity=".16"/>
+<rect x="48.4" y="25.7" width="15.2" height="60.7" rx="7.6" fill="#fff"/>
+<path d="M32.7 56h31.5l5.4-11.7 5.8 23.3 4-11.7H79.3" fill="none" stroke="#fff" stroke-width="15.2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<text x="96" y="352" font-family="Helvetica,Arial,sans-serif" font-size="76" font-weight="700" fill="#fff">Erste Hilfe Worbis</text>
+<text x="96" y="424" font-family="Helvetica,Arial,sans-serif" font-size="38" fill="#D7F5F5">DGUV-anerkannte Kurse · Worbis · Eichsfeld · Göttingen</text>
+<text x="96" y="512" font-family="Helvetica,Arial,sans-serif" font-size="30" fill="#B4EBEB">Offene Termine online buchen · Kurse direkt im Betrieb</text>
+</svg>
