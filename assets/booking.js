@@ -93,11 +93,24 @@
     return _feed;
   }
 
+  /* ---------- BG/UK-Abrechenbarkeit: Guard gegen fehlerhaftes Feed-Flag ----------
+     Der Kursfeed liefert bg_uk_abrechenbar=true auch für Kursarten, die der
+     Unfallversicherungsträger NICHT übernimmt (BH, NFT, LK1, LK2, SanH, BSG, BSA).
+     Die eigene BG/UK-Seite sagt dazu ausdrücklich "Nein". Die Kostenübernahme nach
+     § 23 Abs. 2 SGB VII gilt für die Aus- und Fortbildung benannter Ersthelfender —
+     das sind EHA, EHF und EHB (Bildungs-/Betreuungseinrichtungen).
+     Bewusst konservativ: lieber kein Label als ein falscher Kostenanspruch.
+     TEMPORÄR — entfällt, sobald der Feed korrigiert ist (gemeldet an den Software-Chat). */
+  var BG_UK_ARTEN = { EHA: 1, EHF: 1, EHB: 1 };
+  function istBgUk(k) {
+    return !!(k && k.bg_uk_abrechenbar && BG_UK_ARTEN[k.kursart]);
+  }
+
   /* ---------- Rendering einer Termin-Zeile ---------- */
   function rowHTML(k) {
     var tags = [k.stadt];
     if (k.fuehrerschein_geeignet) tags.push('Führerschein');
-    if (k.bg_uk_abrechenbar) tags.push('BG/UK abrechenbar');
+    if (istBgUk(k)) tags.push('BG/UK abrechenbar');
     if (k.mehrtaegig) tags.push('mehrtägig');
 
     var zeit  = k.uhrzeit ? esc(k.uhrzeit) + (k.uhrzeit_ende ? '–' + esc(k.uhrzeit_ende) : '') + ' Uhr' : '';
@@ -138,7 +151,7 @@
     var artKeys = Object.keys(arten).sort(function (a, b) { return arten[a].localeCompare(arten[b]); });
     var stadtKeys = Object.keys(staedte).sort();
     var showArt = artKeys.length > 1, showStadt = stadtKeys.length > 1;
-    var hasBg = all.some(function (k) { return k.bg_uk_abrechenbar; });
+    var hasBg = all.some(istBgUk);
 
     var bar = '';
     if (showArt || showStadt || hasBg) {
@@ -159,7 +172,7 @@
     function apply() {
       var a = artSel ? artSel.value : '', s = stadtSel ? stadtSel.value : '', bg = bgChk && bgChk.checked;
       var f = all.filter(function (k) {
-        return (!a || k.kursart === a) && (!s || k.stadt === s) && (!bg || k.bg_uk_abrechenbar);
+        return (!a || k.kursart === a) && (!s || k.stadt === s) && (!bg || istBgUk(k));
       });
       rows.innerHTML = f.length ? f.map(rowHTML).join('')
         : '<p class="termine-empty">Für diese Auswahl ist gerade nichts frei. <a href="/inhouse-kurse/">Wunschtermin anfragen →</a></p>';
