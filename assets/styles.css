@@ -284,8 +284,17 @@ a.termin-row:hover .termin-cta{background:linear-gradient(135deg,var(--cta-a),va
 .termin-row.is-full .termin-cta{background:transparent;border-color:var(--line);color:var(--muted)}
 .termin-row.is-full .termin-cta:hover{border-color:var(--brand);color:var(--brand-lo)}
 .termine-empty{padding:26px;border:1px dashed var(--line);border-radius:var(--r);color:var(--muted);text-align:center;background:var(--bg-soft)}
+/* Lange deutsche Komposita ("Betriebssanitaeter-Aufbaulehrgang",
+   "Gefaehrdungsbeurteilung") brechen ohne diese Regel nicht um und laufen
+   auf schmalen Viewports aus dem Layout. */
+h1,h2,h3,h4,h5,h6,.hero h1,dt,th{overflow-wrap:break-word;hyphens:auto}
+
 .termine-filter{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:6px}
 .termine-filter select{
+  /* Ohne Begrenzung skaliert ein <select> auf seinen laengsten Options-Text —
+     bei Kursnamen wie "Betriebssanitaeter - Grundausbildung (Kompaktblock, 8 Tage + Pruefung)"
+     sprengt das schmale Viewports. Waechst sonst mit jedem neuen Kursnamen mit. */
+  max-width:100%;min-width:0;flex:1 1 150px;text-overflow:ellipsis;
   appearance:none;padding:10px 38px 10px 14px;border:1px solid var(--line);border-radius:var(--r-pill);
   background:var(--card) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2378716C' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 15px center;
   color:var(--ink);font:inherit;font-size:.9rem;cursor:pointer;
