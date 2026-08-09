@@ -312,8 +312,10 @@ h1,h2,h3,h4,h5,h6,dt,th{overflow-wrap:break-word}
   background:var(--card) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2378716C' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 15px center;
   color:var(--ink);font:inherit;
   /* 16px Pflicht: iOS zoomt beim Antippen in jedes Feld unter 16px hinein.
-     Der Terminfilter hat eine EIGENE Regel — die Korrektur an `.field` greift hier nicht. */
-  font-size:16px;cursor:pointer;
+     Der Terminfilter hat eine EIGENE Regel — die Korrektur an `.field` greift hier nicht.
+     `max(16px, 1rem)` statt hartem 16px: Untergrenze bleibt, aber wenn jemand die
+     Browser-Schrift hochsetzt, wird 1rem groesser und gewinnt (sonst kappt 16px das). */
+  font-size:max(16px, 1rem);cursor:pointer;
 }
 .tf-bg{display:inline-flex;align-items:center;gap:8px;font-size:.9rem;color:var(--ink-2);cursor:pointer;padding:10px 14px;border:1px solid var(--line);border-radius:var(--r-pill)}
 .tf-count{margin-left:auto;color:var(--muted);font-size:.87rem;font-weight:600}
@@ -502,8 +504,11 @@ tr:last-child td{border-bottom:0}
   background:var(--bg);color:var(--ink);font:inherit;
   /* MINDESTENS 16px: iOS Safari zoomt beim Antippen automatisch hinein, wenn die
      Feldschrift kleiner ist. Vorher .98rem = 15,68px -> jede Formulareingabe am
-     iPhone sprang und musste manuell zurueckgezoomt werden. Nicht unter 16px setzen. */
-  font-size:16px;
+     iPhone sprang und musste manuell zurueckgezoomt werden. Nicht unter 16px setzen.
+     `max(16px, 1rem)`: haelt die Untergrenze auch dann, wenn spaeter jemand
+     `:root{font-size:15px}` setzt — skaliert aber mit, wenn ein Nutzer die
+     Browser-Schrift fuer die Barrierefreiheit groesser stellt. */
+  font-size:max(16px, 1rem);
   transition:border-color .18s var(--ease),box-shadow .18s var(--ease);
 }
 .field textarea{min-height:130px;resize:vertical}
