@@ -27,6 +27,16 @@
   var MONTHS = ['Jan.', 'Feb.', 'März', 'Apr.', 'Mai', 'Juni', 'Juli', 'Aug.', 'Sep.', 'Okt.', 'Nov.', 'Dez.'];
 
   /* ---------- Helfer ---------- */
+  // Herkunft an einen Portal-Link haengen. Der Kurs-Feed liefert `…/buchen?termin=…&org=bww`
+  // OHNE `quelle` (10.08.2026 an allen 41 Terminen nachgemessen) — ohne diesen Zusatz kommt
+  // jede Buchung im Arbeitsbereich herkunftslos an, und niemand kann sagen, welche Website
+  // die Kunden bringt. Eine vom Server mitgegebene `quelle` wird NICHT ueberschrieben:
+  // bei fremden Veranstaltern kennt er die richtige besser als wir.
+  function mitQuelle(u) {
+    if (!u || /[?&]quelle=/.test(u)) return u;
+    return u + (u.indexOf('?') === -1 ? '?' : '&') + 'quelle=' + encodeURIComponent(QUELLE);
+  }
+
   function esc(s) {
     return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) {
       return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c];
@@ -130,8 +140,8 @@
         ' data-titel="' + esc(k.titel) + '"' +
         ' data-datum="' + esc(fmtRange(k)) + (k.stadt ? ' · ' + esc(k.stadt) : '') + '">Warteliste →</button></div>';
     }
-    // buchungs_url unverändert übernehmen (enthält den org des Veranstalters!)
-    var url = k.buchungs_url || (API + '/buchen?termin=' + encodeURIComponent(k.id || ''));
+    // buchungs_url sonst unverändert übernehmen (enthält den org des Veranstalters!)
+    var url = mitQuelle(k.buchungs_url || (API + '/buchen?termin=' + encodeURIComponent(k.id || '')));
     return '<a class="termin-row" href="' + esc(url) + '" target="_blank" rel="noopener"' +
       ' data-termin-id="' + esc(k.id || '') + '" data-titel="' + esc(label(k.titel)) + '">' +
       inner + '<span class="termin-cta">Platz buchen →</span></a>';
