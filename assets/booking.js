@@ -132,6 +132,14 @@
     // also lief IMMER der Nachsatz. Kein Fehler, keine leere Anzeige — nur eine Funktion, die
     // es nie gab. `freie_plaetze` bleibt als Rueckfall stehen, falls ein fremder Feed so
     // schreibt; die eigene Schreibweise gewinnt.
+    // 🔴 NICHT an Duderstadt angleichen — dort steht der alte Feldname mit ABSICHT.
+    // Gleiche Zeile, gegenteilige Entscheidung, und beide sind richtig (Stand 11.08.2026,
+    // Koordinator): Bei uns sind die Kapazitaeten gegen HiOrg nachgezogen (731 Plaetze),
+    // `plaetze_frei` traegt also — der Knappheitshinweis darf erscheinen. Auf Duderstadt
+    // weicht `plaetze_frei` bei 15 von 33 Terminen ab; dort schuetzt der nie zutreffende
+    // Feldname derzeit vor FALSCHER Knappheit („nur noch 2 Plaetze", wo 20 frei sind).
+    // Wer die beiden Dateien angleicht, ohne die Kapazitaeten zu pruefen, macht eine der
+    // beiden Seiten kaputt. Erst messen, dann angleichen.
     var restplaetze = (k.plaetze_frei != null) ? k.plaetze_frei : k.freie_plaetze;
     var frei  = (restplaetze != null && restplaetze !== '' && +restplaetze <= 4 && !voll)
                 ? 'nur noch ' + esc(restplaetze) + ' Plätze' : 'Plätze frei';
