@@ -1,0 +1,8 @@
+abgerufen=2026-08-11T11:50:46+00:00
+termine=41
+startdate_ausgezeichnet=ja
+quelle=https://software-wippermann.de/api/kurse?org=bww&mit_abgesagten=1
+# Regel: Ist 'abgerufen' aelter als 48 Stunden, sind die Termine in den
+# strukturierten Daten nicht mehr belastbar. Dann neu bauen — oder die
+# Auszeichnung abschalten: OHNE_TERMIN_LD=1 python3 build.py
+# Pruefen: python3 build/pruefe-termin-frische.py
