@@ -126,8 +126,15 @@
     var zeit  = k.uhrzeit ? esc(k.uhrzeit) + (k.uhrzeit_ende ? '–' + esc(k.uhrzeit_ende) : '') + ' Uhr' : '';
     var preis = (k.preis != null && k.preis !== '') ? esc(k.preis) + ' €' : 'auf Anfrage';
     var voll  = !!k.ausgebucht;
-    var frei  = (k.freie_plaetze != null && k.freie_plaetze !== '' && +k.freie_plaetze <= 4 && !voll)
-                ? 'nur noch ' + esc(k.freie_plaetze) + ' Plätze' : 'Plätze frei';
+    // Das Feld heisst im Feed `plaetze_frei` — hier stand `freie_plaetze`, ein Name, den der
+    // Feed nie geliefert hat (11.08.2026 an allen 41 Terminen nachgemessen: 0×). Damit war
+    // der Zweig „nur noch N Plaetze" seit jeher unerreichbar: `undefined != null` ist falsch,
+    // also lief IMMER der Nachsatz. Kein Fehler, keine leere Anzeige — nur eine Funktion, die
+    // es nie gab. `freie_plaetze` bleibt als Rueckfall stehen, falls ein fremder Feed so
+    // schreibt; die eigene Schreibweise gewinnt.
+    var restplaetze = (k.plaetze_frei != null) ? k.plaetze_frei : k.freie_plaetze;
+    var frei  = (restplaetze != null && restplaetze !== '' && +restplaetze <= 4 && !voll)
+                ? 'nur noch ' + esc(restplaetze) + ' Plätze' : 'Plätze frei';
 
     var inner =
       '<span class="termin-date"><b>' + fmtRange(k) + '</b>' + (zeit ? '<small>' + zeit + '</small>' : '') + '</span>' +
