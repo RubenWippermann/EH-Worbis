@@ -39,7 +39,12 @@
 
   --ink:#14201F;
   --ink-2:#3A4746;
-  --muted:#6B7B79;
+  /* 16.08.2026 nachgerechnet: #6B7B79 auf Weiss ergab **4,44:1** — knapp UNTER der
+     Grenze von 4,5:1 fuer Fliesstext, und `--muted` traegt an 24 Stellen die
+     Kleinschrift (Zusatzzeilen, Hinweise, Kartenfuesse). Auf #61706D angehoben:
+     **5,19:1**, optisch praktisch unveraendert. 🔑 Ein Ton, der an 24 Stellen sitzt,
+     ist ein Systemwert — den korrigiert man am Token, nicht an der Fundstelle. */
+  --muted:#61706D;
   --line:#E0E7E6;
   --line-2:#EBF1F0;
   --bg:#FFFFFF;
@@ -667,6 +672,14 @@ tr:last-child td{border-bottom:0}
 .chip:hover{border-color:var(--brand);color:var(--brand-lo);background:var(--bg-tint);transform:translateY(-1px)}
 
 /* ---------- Seiten-Hero (Unterseiten) ---------- */
+/* Preis im Kopf der Kursseite — grosse Zahl, kleine Einordnung. Die Einordnung ist
+   Pflicht, nicht Deko: „ab 30 EUR" ohne „pro Person im offenen Kurs" waere eine
+   Zusage, die fuer jede Inhouse-Anfrage falsch ist. */
+.kurs-preis{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 12px;margin:-.2em 0 1.4em}
+.kurs-preis b{font-size:clamp(2rem,1.5rem + 2vw,3rem);font-weight:850;letter-spacing:-.04em;
+  line-height:1;color:var(--brand-lo)}
+.kurs-preis span{font-size:.95rem;color:var(--ink-2);font-weight:600}
+
 .page-hero{padding:clamp(40px,5vw,72px) 0 clamp(28px,3.5vw,48px);background:var(--bg-soft);border-bottom:1px solid var(--line)}
 .page-hero h1{max-width:22ch;font-size:clamp(1.95rem,1.35rem + 2.2vw,3.1rem)}
 .page-hero p{color:var(--ink-2);font-size:1.09rem;max-width:56ch;margin-bottom:0}
