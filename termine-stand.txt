@@ -1,6 +1,11 @@
-2026-08-17T09:11:45+00:00	37
+2026-08-17T09:28:35+00:00	37
 # startdate_ausgezeichnet=ja
 # quelle=https://software-wippermann.de/api/kurse?org=bww&mit_abgesagten=1
+# fingerabdruck=f24af405d352
+# bewegung_zuletzt=2026-08-17
+# unveraendert_seit_tagen=0
+# spaetester_termin=2026-12-20
+# bewegung_letzter_lauf=neu:0 geaendert:0 entfallen:0 (entfallen=Zeitablauf, kein Alarm)
 # Regel: Ist die Zeit oben aelter als 48 Stunden, sind die Termine in den
 # strukturierten Daten nicht mehr belastbar. Dann neu bauen — oder die
 # Auszeichnung abschalten: OHNE_TERMIN_LD=1 python3 build.py
