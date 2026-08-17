@@ -300,8 +300,16 @@
     var els = document.querySelectorAll('[data-termine-count]');
     if (!els.length) return;
     loadFeed().then(function (all) {
-      var frei = all.filter(function (k) { return !k.ausgebucht; }).length;
-      Array.prototype.forEach.call(els, function (el) { el.textContent = frei > 0 ? String(frei) : '—'; });
+      /* ⚖️ Diese Zahl ist erlaubt und muss bleiben: Sie zaehlt buchbare TERMINE, nicht
+         freie PLAETZE. Rubens Regel vom 17.08. verbietet die Anzahl freier Plaetze je
+         Kurs — wie viele Termine offen sind, ist eine Aussage ueber das Angebot.
+         🔴 Abgesagte zaehlen seit 17.08. NICHT mehr mit: Bis dahin filterte die Zeile nur
+            `ausgebucht`, ein abgesagter Kurs waere also als offener Termin mitgezaehlt
+            worden — dieselbe Luecke wie in der Terminzeile, nur an einer zweiten Stelle. */
+      var offen = all.filter(function (k) {
+        return !k.ausgebucht && k.eventStatus !== 'cancelled';
+      }).length;
+      Array.prototype.forEach.call(els, function (el) { el.textContent = offen > 0 ? String(offen) : '—'; });
     }).catch(function () {});
   }
 
