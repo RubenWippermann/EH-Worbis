@@ -422,6 +422,18 @@ a.termin-row:hover .termin-cta{background:var(--accent);color:var(--o-950);borde
 .termin-row.is-full{opacity:.9}
 .termin-row.is-full .termin-cta{background:transparent;border-color:var(--line);color:var(--muted)}
 .termin-row.is-full .termin-cta:hover{border-color:var(--brand);color:var(--brand-lo)}
+/* ABGESAGT — dritter Zustand seit 17.08.2026, deutlich verschieden von „ausgebucht".
+   Ausgebucht heisst „nimm einen anderen Termin", abgesagt heisst „faellt aus". Wer
+   beides gleich aussehen laesst, laesst Kunden auf einer Warteliste warten, die es
+   nicht gibt. Deshalb: Datum und Titel durchgestrichen, kraeftigere Abblendung, und
+   der Knopf sieht bewusst NICHT anklickbar aus (kein Hover, kein Rahmenwechsel). */
+.termin-row.is-cancelled{opacity:.72}
+.termin-row.is-cancelled .termin-date b,
+.termin-row.is-cancelled .termin-info b,
+.termin-row.is-cancelled .termin-meta b{text-decoration:line-through;text-decoration-thickness:2px}
+.termin-row.is-cancelled .termin-meta small{color:var(--brand-lo);font-weight:800}
+.termin-row.is-cancelled .termin-cta{background:transparent;border-color:var(--line);
+  color:var(--muted);cursor:default}
 .termine-empty{padding:26px;border:1px dashed var(--line);border-radius:var(--r);color:var(--muted);text-align:center;background:var(--bg-soft)}
 /* Lange deutsche Komposita ("Betriebssanitaeter-Aufbaulehrgang",
    "Gefaehrdungsbeurteilung") brechen ohne diese Regel nicht um und laufen

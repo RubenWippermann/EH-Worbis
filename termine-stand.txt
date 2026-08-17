@@ -1,7 +1,7 @@
-2026-08-17T18:30:40+00:00	37
+2026-08-17T18:54:08+00:00	37
 # startdate_ausgezeichnet=ja
 # quelle=https://software-wippermann.de/api/kurse?org=bww&mit_abgesagten=1
-# fingerabdruck=c156d04435c4
+# fingerabdruck=8f0848bc149b
 # bewegung_zuletzt=2026-08-17
 # unveraendert_seit_tagen=0
 # spaetester_termin=2026-12-20

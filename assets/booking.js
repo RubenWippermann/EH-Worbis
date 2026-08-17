@@ -146,7 +146,15 @@
 
     var zeit  = k.uhrzeit ? esc(k.uhrzeit) + (k.uhrzeit_ende ? '–' + esc(k.uhrzeit_ende) : '') + ' Uhr' : '';
     var preis = (k.preis != null && k.preis !== '') ? esc(k.preis) + ' €' : 'auf Anfrage';
-    var voll  = !!k.ausgebucht;
+    /* 🔴 17.08.2026: DRITTER ZUSTAND — abgesagt. Bis heute kannte diese Zeile nur
+       „frei" und „ausgebucht"; ein abgesagter Kurs waere als BUCHBAR erschienen, mit
+       funktionierendem Link. Das Buero stellt abgesagte Kurse derzeit ersatzweise auf
+       „ausgebucht" — sicherer, aber der Kunde liest „voll" statt „faellt aus" und setzt
+       sich auf eine Warteliste fuer einen Kurs, den es nicht geben wird.
+       ⚠️ Muss zeichengleich mit dem Bau bleiben (build.py, `termin_zeilen_html`), sonst
+       springt die Zeile beim Nachladen um. */
+    var faelltAus = k.eventStatus === 'cancelled';
+    var voll  = !faelltAus && !!k.ausgebucht;
     // Das Feld heisst im Feed `plaetze_frei` — hier stand `freie_plaetze`, ein Name, den der
     // Feed nie geliefert hat (11.08.2026 an allen 41 Terminen nachgemessen: 0×). Damit war
     // der Zweig „nur noch N Plaetze" seit jeher unerreichbar: `undefined != null` ist falsch,
@@ -168,8 +176,16 @@
     var inner =
       '<span class="termin-date"><b>' + fmtRange(k) + '</b>' + (zeit ? '<small>' + zeit + '</small>' : '') + '</span>' +
       '<span class="termin-info"><b>' + esc(titelAnzeige(k.titel)) + '</b><small>' + tags.filter(Boolean).map(esc).join(' · ') + '</small></span>' +
-      '<span class="termin-meta"><b>' + preis + '</b><small>' + (voll ? 'Ausgebucht' : frei) + '</small></span>';
+      '<span class="termin-meta"><b>' + preis + '</b><small>' +
+        (faelltAus ? 'Abgesagt' : (voll ? 'Ausgebucht' : frei)) + '</small></span>';
 
+    if (faelltAus) {
+      /* Kein Buchungslink und KEINE Warteliste: Für einen Kurs, der nicht stattfindet,
+         gibt es nichts anzustehen. Der Termin bleibt trotzdem sichtbar — wer schon
+         gebucht hat, muss ihn finden. */
+      return '<div class="termin-row is-cancelled">' + inner +
+        '<span class="termin-cta">Fällt aus</span></div>';
+    }
     if (voll) {
       return '<div class="termin-row is-full">' + inner +
         '<button type="button" class="termin-cta wl-open" data-termin="' + esc(k.id) + '"' +
