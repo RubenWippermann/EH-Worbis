@@ -31,9 +31,9 @@ Jeder Satz ist eigenständig zitierbar und mit der Fundstelle belegt.
 - [Erste Hilfe für Babys & Kleinkinder (EHBK)](https://www.erstehilfe-worbis.de/kurse/erste-hilfe-baby-kind/): Der Abendkurs für Eltern, Großeltern und Paten. kompakter Abendkurs, ab 50 €.
 - [Brandschutzhelfer (BH)](https://www.erstehilfe-worbis.de/kurse/brandschutzhelfer/): Pflicht in jedem Betrieb — Theorie plus Löschübung. ca. 4 Stunden · Theorie & Praxis, ab 50 €.
 - [Notfalltraining (NFT)](https://www.erstehilfe-worbis.de/kurse/notfalltraining/): Für Praxen, Pflege und Teams mit echtem Notfallrisiko. 4 Stunden · praxisorientiert, ab 50 €.
-- [Lehrkräfte-Ausbildung — Themenbereich 1 (LK1)](https://www.erstehilfe-worbis.de/kurse/lehrkraefte-ausbildung-tb1/): Der Einstieg zur Ausbilderqualifikation Erste Hilfe. 3 Tage, ab 150 €.
-- [Lehrkräfte-Ausbildung — Themenbereich 2 (LK2)](https://www.erstehilfe-worbis.de/kurse/lehrkraefte-ausbildung-tb2/): Der fachliche Aufbau bis zur eigenständigen Kursleitung. 4 Tage, ab 200 €.
-- [Lehrkräfte-Fortbildung (LKF)](https://www.erstehilfe-worbis.de/kurse/lehrkraefte-fortbildung/): Die Pflichtfortbildung für Erste-Hilfe-Lehrkräfte. 16 Unterrichtseinheiten · 2 Tage, ab 100 €.
+- [Ausbilder-Qualifikation — Themenbereich 1 (LK1)](https://www.erstehilfe-worbis.de/kurse/lehrkraefte-ausbildung-tb1/): Der Einstieg zur Ausbilderqualifikation Erste Hilfe. 3 Tage, ab 150 €.
+- [Ausbilder-Qualifikation — Themenbereich 2 (LK2)](https://www.erstehilfe-worbis.de/kurse/lehrkraefte-ausbildung-tb2/): Der fachliche Aufbau bis zur eigenständigen Kursleitung. 4 Tage, ab 200 €.
+- [Ausbilder-Fortbildung (LKF)](https://www.erstehilfe-worbis.de/kurse/lehrkraefte-fortbildung/): Die Pflichtfortbildung für Erste-Hilfe-Lehrkräfte. 16 Unterrichtseinheiten · 2 Tage, ab 100 €.
 - [Betriebssanitäter — Grundausbildung (BSG)](https://www.erstehilfe-worbis.de/kurse/betriebssanitaeter-grundausbildung/): Der Kompaktblock mit Prüfung nach DGUV Grundsatz 304-002. 63 UE zzgl. Prüfung (i. d. R. 8 UE), ab 450 €.
 - [Betriebssanitäter — Aufbaulehrgang (BSA)](https://www.erstehilfe-worbis.de/kurse/betriebssanitaeter-aufbaulehrgang/): Der zweite Teil zur vollen Qualifikation. 32 UE zzgl. Prüfung (i. d. R. 8 UE), ab 250 €.
 - [Medizinischer Sanitätshelfer (SanH)](https://www.erstehilfe-worbis.de/kurse/sanitaetshelfer/): Sechs Tage bis zur qualifizierten Sanitätsausbildung. 6 Tage, ab 300 €.
