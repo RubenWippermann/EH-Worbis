@@ -155,23 +155,25 @@
        springt die Zeile beim Nachladen um. */
     var faelltAus = k.eventStatus === 'cancelled';
     var voll  = !faelltAus && !!k.ausgebucht;
-    // Das Feld heisst im Feed `plaetze_frei` — hier stand `freie_plaetze`, ein Name, den der
-    // Feed nie geliefert hat (11.08.2026 an allen 41 Terminen nachgemessen: 0×). Damit war
-    // der Zweig „nur noch N Plaetze" seit jeher unerreichbar: `undefined != null` ist falsch,
-    // also lief IMMER der Nachsatz. Kein Fehler, keine leere Anzeige — nur eine Funktion, die
-    // es nie gab. `freie_plaetze` bleibt als Rueckfall stehen, falls ein fremder Feed so
-    // schreibt; die eigene Schreibweise gewinnt.
-    // 🔴 NICHT an Duderstadt angleichen — dort steht der alte Feldname mit ABSICHT.
-    // Gleiche Zeile, gegenteilige Entscheidung, und beide sind richtig (Stand 11.08.2026,
-    // Koordinator): Bei uns sind die Kapazitaeten gegen HiOrg nachgezogen (731 Plaetze),
-    // `plaetze_frei` traegt also — der Knappheitshinweis darf erscheinen. Auf Duderstadt
-    // weicht `plaetze_frei` bei 15 von 33 Terminen ab; dort schuetzt der nie zutreffende
-    // Feldname derzeit vor FALSCHER Knappheit („nur noch 2 Plaetze", wo 20 frei sind).
-    // Wer die beiden Dateien angleicht, ohne die Kapazitaeten zu pruefen, macht eine der
-    // beiden Seiten kaputt. Erst messen, dann angleichen.
-    var restplaetze = (k.plaetze_frei != null) ? k.plaetze_frei : k.freie_plaetze;
-    var frei  = (restplaetze != null && restplaetze !== '' && +restplaetze <= 4 && !voll)
-                ? 'nur noch ' + esc(restplaetze) + ' Plätze' : 'Plätze frei';
+    /* 🔴 17.08.2026, ENTSCHEIDUNG RUBENS — WORTLAUT:
+       „jeder kurs hat 20 Plätze, wenn sich jemand anmeldet über die website oder manuell
+        vom büro schrumpft die personenanzahl — DIE ANZAHL DER FREIEN PLÄTZE DARF
+        ÖFFENTLICH NICHT EINSEHBAR SEIN, dort steht nur, dass plätze frei sind"
+
+       Hier stand bis heute ein Knappheitshinweis: bei vier oder weniger freien Plaetzen
+       „nur noch N Plätze". Er ist ERSATZLOS entfernt — nicht auf eine andere Spalte
+       umgestellt, nicht auf eine andere Schwelle gesetzt.
+       🔑 Die Anzeige sagt nur noch etwas ueber das OB, nie ueber die ANZAHL.
+       ⚠️ Das gilt UEBERALL, nicht nur hier: kein `inventoryLevel` in den strukturierten
+          Daten, keine Restzahl in `data-`Attributen, keine Zahl im Wartelistenfenster.
+          Wer eine Anzeige aendert, prueft diese Regel neu.
+       📌 Nebenwirkung, die die Sache leichter macht: In der Datenbank widersprechen sich
+          bei 19 von 37 kuenftigen Kursen zwei Kapazitaetsspalten. Ohne Knappheitsaussage
+          kann uns dieser Widerspruch nicht mehr treffen — eine falsche Zahl, die niemand
+          anzeigt, richtet keinen Schaden an.
+       📌 Damit ist auch die alte Notiz erledigt, `plaetze_frei` sei „bei uns tragfaehig,
+          bei Duderstadt nicht": Die Zahl wird auf KEINER Seite mehr gezeigt. */
+    var frei = 'Plätze frei';
 
     var inner =
       '<span class="termin-date"><b>' + fmtRange(k) + '</b>' + (zeit ? '<small>' + zeit + '</small>' : '') + '</span>' +
