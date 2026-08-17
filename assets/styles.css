@@ -352,8 +352,27 @@ body.menu-open .menu-toggle span::after{top:0;transform:rotate(-45deg)}
 .hero-panel .termine-skeleton .sk-row{height:56px}
 
 @media (max-width:900px){
-  .hero-grid{grid-template-columns:1fr}
-  .hero-panel{order:2}
+  /* 🔑 AM TELEFON KOMMT DER TERMIN VOR DEM VERSPRECHEN.
+     Gemessen am 17.08.2026 auf 375 px: Im ersten Bildschirm stand KEIN einziges
+     Datum — die erste Terminzeile lag bei 983 px, also 170 px unter der Kante.
+     Die Überschrift verspricht „Einen Termin aussuchen. Hinfahren. Fertig." und
+     im selben Bild war kein Termin zu sehen. Am Schreibtisch fällt das nicht auf,
+     weil die Liste dort NEBEN der Überschrift steht; am Telefon rutscht sie
+     darunter — und dort kommen die meisten an.
+     Nicht der Inhalt fehlte, sondern die Reihenfolge. Deshalb: Vorzeile und
+     Überschrift bleiben oben (sonst weiß niemand, wo er ist), dann sofort die
+     Termine, danach erst Fließtext, Knöpfe und Gütesiegel.
+     `display:contents` löst den Textblock auf, damit seine Kinder eigene
+     Flex-Positionen bekommen — sonst ließe sich die Liste nur VOR oder HINTER
+     den ganzen Block schieben, nie mittendrin. */
+  .hero-grid{display:flex;flex-direction:column;gap:22px}
+  .hero-grid > div{display:contents}
+  .hero .eyebrow{order:1}
+  .hero h1{order:2}
+  .hero-panel{order:3}
+  .hero-sub{order:4}
+  .hero-actions{order:5}
+  .hero-trust{order:6}
 }
 
 /* ---------- Termin-Listen (API) ---------- */
