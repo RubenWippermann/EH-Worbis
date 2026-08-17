@@ -183,6 +183,8 @@ hr{border:0;border-top:1px solid var(--line);margin:2.5rem 0}
 /* Aktiver Punkt: Unterstrich in Signalfarbe statt nur andere Schriftfarbe —
    auf dunklem Grund ist ein Farbwechsel allein zu leise. */
 .nav-links a.active{color:var(--accent);font-weight:700;box-shadow:inset 0 -3px 0 var(--accent)}
+
+}
 .nav-cta{
   margin-left:10px;background:var(--accent);color:var(--o-950) !important;
   padding:11px 20px !important;border-radius:0;font-weight:800 !important;
@@ -792,3 +794,23 @@ tr:last-child td{border-bottom:0}
 .muted{color:var(--muted)}
 .nowrap{white-space:nowrap}
 .hide{display:none}
+
+/* 🔴 17.08.2026 GEMESSEN — und die Messung fand einen Fehler, der SCHON LIVE WAR.
+   Anlass war der neue Menuepunkt „Shop". Nachgemessen im Browser bei 1.440 px:
+     heute live, ohne Shop, mit Telefonnummer   -> ABGESCHNITTEN, 29 px zu breit
+     ohne Telefonnummer                          -> passt, 22 px Luft
+     ohne Telefonnummer, MIT Shop                -> passt, 22 px Luft
+     mit Telefonnummer UND Shop                  -> abgeschnitten, 92 px zu breit
+   Die Leiste war also bereits ohne den Shop zu voll — `--wrap` begrenzt sie auf 1.180 px,
+   und Marke (247) plus acht Punkte (895) plus Abstaende passen da nicht hinein. Sie
+   ueberlaeuft bei JEDER Bildschirmbreite gleich, weil sie nicht mitwaechst.
+   🔑 Deshalb faellt in der waagerechten Leiste die TELEFONNUMMER weg — sie ist der
+      breiteste Punkt (174 px) und der einzige, der doppelt vorhanden ist: Sie steht im
+      eingeklappten Menue, im Fussbereich und im Kontaktbereich weiterhin.
+   ⚠️ Das eingeklappte Menue greift ab 1.200 px und ist NICHT betroffen — dort bleibt die
+      Nummer stehen. Deshalb `min-width:1201px` und nicht global.
+   ⚠️ Wer einen weiteren Menuepunkt ergaenzt, misst nach: nach diesem Eingriff sind
+      22 px Luft, das sind zwei Zeichen. Ein neunter Punkt passt NICHT. */
+@media (min-width:1201px){
+  .nav-tel{display:none}
+}
