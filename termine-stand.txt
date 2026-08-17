@@ -1,4 +1,4 @@
-2026-08-17T05:00:53+00:00	37
+2026-08-17T07:28:55+00:00	37
 # startdate_ausgezeichnet=ja
 # quelle=https://software-wippermann.de/api/kurse?org=bww&mit_abgesagten=1
 # Regel: Ist die Zeit oben aelter als 48 Stunden, sind die Termine in den
