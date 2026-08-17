@@ -61,6 +61,27 @@
     return fmtDate(k.datum) + ' – ' + fmtDate(k.datum_ende);
   }
   function label(t) { return String(t == null ? '' : t).replace(/\s*\([^)]*\)/g, '').trim(); }
+  /* Kundenname aus dem Kurstitel halten — NUR fuer die Anzeige.
+     Im Kurssystem trennt " · " (Leerzeichen-Mittelpunkt-Leerzeichen) den Kurs vom
+     AUFTRAGGEBER einer Inhouse-Schulung: "Erste-Hilfe-Ausbildung · Muster GmbH".
+     Wird so ein Kurs versehentlich oeffentlich geschaltet, stuende der Firmenname
+     auf unserer Seite. Gemessen vom Software-Chat: bei 735 von 795 Kursen ist " · "
+     genau dieser Trenner, 0 legitime Zusaetze.
+     DREI GRENZEN, gemeinsam mit den anderen drei Seiten festgelegt:
+     (1) NUR Anzeige. buchungs_url, id und alles Gespeicherte bleiben ROH — der Zusatz
+         IST die Inhouse-Zuordnung, wer ihn wegschneidet, zerstoert sie.
+     (2) NUR " · " mit Leerzeichen auf beiden Seiten. Klammern und Halbgeviertstrich
+         bleiben: "Erste-Hilfe-Ausbildung (Grund-/Fuehrerscheinkurs)" und
+         "Lehrkraefte-Ausbildung – Themenbereich 1" sind echte Titelbestandteile.
+     (3) NETZ, KEIN WURZELFIX. Der Name wird nicht mehr GEZEIGT, der faelschlich
+         oeffentliche Inhouse-Kurs bleibt BUCHBAR. public=0 gehoert Ruben.
+     Am 17.08.2026 traf die Regel auf erstehilfe-worbis.de 0 von 37 Titeln — sie ist
+     Vorsorge, keine Reparatur. Genau deshalb steht das hier: Eine Regel, die heute
+     nichts tut, wird sonst beim naechsten Umbau als tot entfernt. */
+  function titelAnzeige(t) {
+    var s = String(t == null ? '' : t), kopf = s.split(/\s+[·•]\s+/)[0].trim();
+    return kopf || s;
+  }
   function jget(url) {
     return fetch(url, { credentials: 'omit' }).then(function (r) {
       if (!r.ok) throw new Error('http_' + r.status);
@@ -146,19 +167,19 @@
 
     var inner =
       '<span class="termin-date"><b>' + fmtRange(k) + '</b>' + (zeit ? '<small>' + zeit + '</small>' : '') + '</span>' +
-      '<span class="termin-info"><b>' + esc(k.titel) + '</b><small>' + tags.filter(Boolean).map(esc).join(' · ') + '</small></span>' +
+      '<span class="termin-info"><b>' + esc(titelAnzeige(k.titel)) + '</b><small>' + tags.filter(Boolean).map(esc).join(' · ') + '</small></span>' +
       '<span class="termin-meta"><b>' + preis + '</b><small>' + (voll ? 'Ausgebucht' : frei) + '</small></span>';
 
     if (voll) {
       return '<div class="termin-row is-full">' + inner +
         '<button type="button" class="termin-cta wl-open" data-termin="' + esc(k.id) + '"' +
-        ' data-titel="' + esc(k.titel) + '"' +
+        ' data-titel="' + esc(titelAnzeige(k.titel)) + '"' +
         ' data-datum="' + esc(fmtRange(k)) + (k.stadt ? ' · ' + esc(k.stadt) : '') + '">Warteliste →</button></div>';
     }
     // buchungs_url sonst unverändert übernehmen (enthält den org des Veranstalters!)
     var url = mitQuelle(k.buchungs_url || (API + '/buchen?termin=' + encodeURIComponent(k.id || '')));
     return '<a class="termin-row" href="' + esc(url) + '" target="_blank" rel="noopener"' +
-      ' data-termin-id="' + esc(k.id || '') + '" data-titel="' + esc(label(k.titel)) + '">' +
+      ' data-termin-id="' + esc(k.id || '') + '" data-titel="' + esc(label(titelAnzeige(k.titel))) + '">' +
       inner + '<span class="termin-cta">Platz buchen →</span></a>';
   }
 
@@ -170,7 +191,7 @@
   function renderFiltered(el, all) {
     var arten = {}, staedte = {};
     all.forEach(function (k) {
-      if (k.kursart && !arten[k.kursart]) arten[k.kursart] = label(k.titel);
+      if (k.kursart && !arten[k.kursart]) arten[k.kursart] = label(titelAnzeige(k.titel));
       if (k.stadt) staedte[k.stadt] = 1;
     });
     var artKeys = Object.keys(arten).sort(function (a, b) { return arten[a].localeCompare(arten[b]); });
