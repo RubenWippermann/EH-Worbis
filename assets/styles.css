@@ -316,6 +316,16 @@ body.menu-open .menu-toggle span::after{top:0;transform:rotate(-45deg)}
 .hero .hero-actions .btn.primary:hover{background:#fff;border-color:#fff;color:var(--o-950)}
 .hero .hero-actions .btn.ghost{border-color:#fff;color:#fff}
 .hero .hero-actions .btn.ghost:hover{background:#fff;color:var(--o-950)}
+/* Zweiter Weg als Text neben dem Knopf — Kontrast --band-mute auf --band = 8,44:1
+   (gerechnet). Unterstrichen, damit er als Link erkennbar bleibt: Auf dunklem Grund
+   traegt Farbe allein die Erkennbarkeit nicht. */
+.hero-nebenlink{
+  display:inline-flex;align-items:center;color:var(--band-mute);font-weight:700;
+  font-size:1rem;text-decoration:underline;text-underline-offset:5px;
+  padding:16px 4px;margin-left:22px;
+}
+.hero-nebenlink:hover{color:var(--accent)}
+@media (max-width:560px){.hero-nebenlink{margin-left:0;padding-left:0}}
 .hero-trust{display:flex;flex-wrap:wrap;gap:10px 26px;font-size:.92rem;color:var(--band-mute)}
 .hero-trust span{display:inline-flex;align-items:center;gap:7px;font-weight:640}
 .hero-trust svg{width:17px;height:17px;color:var(--accent);flex:0 0 auto}
