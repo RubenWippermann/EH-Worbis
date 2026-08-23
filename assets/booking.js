@@ -42,6 +42,11 @@
       return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c];
     });
   }
+  // Nur http(s) durchlassen. buchungs_url kommt aus dem externen Kursfeed — esc()
+  // schuetzt vor kaputtem HTML, nicht vor einem Schema wie 'javascript:'.
+  function sichereUrl(u, ersatz) {
+    return (u && /^https?:\/\//i.test(String(u).trim())) ? u : ersatz;
+  }
   function pad(n) { return (n < 10 ? '0' : '') + n; }
   function today() { var d = new Date(); return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()); }
   function fmtDate(d) {
@@ -195,7 +200,7 @@
         ' data-datum="' + esc(fmtRange(k)) + (k.stadt ? ' · ' + esc(k.stadt) : '') + '">Warteliste →</button></div>';
     }
     // buchungs_url sonst unverändert übernehmen (enthält den org des Veranstalters!)
-    var url = mitQuelle(k.buchungs_url || (API + '/buchen?termin=' + encodeURIComponent(k.id || '')));
+    var url = mitQuelle(sichereUrl(k.buchungs_url, null) || (API + '/buchen?termin=' + encodeURIComponent(k.id || '')));
     return '<a class="termin-row" href="' + esc(url) + '" target="_blank" rel="noopener"' +
       ' data-termin-id="' + esc(k.id || '') + '" data-titel="' + esc(label(titelAnzeige(k.titel))) + '">' +
       inner + '<span class="termin-cta">Platz buchen →</span></a>';
