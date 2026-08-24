@@ -1,9 +1,9 @@
-2026-08-23T22:10:59+00:00	35
+2026-08-24T05:04:38+00:00	35
 # startdate_ausgezeichnet=ja
 # quelle=https://software-wippermann.de/api/kurse?org=bww&mit_abgesagten=1
 # fingerabdruck=43467aefb370
 # bewegung_zuletzt=2026-08-23
-# unveraendert_seit_tagen=0
+# unveraendert_seit_tagen=1
 # spaetester_termin=2026-12-20
 # bewegung_letzter_lauf=neu:0 geaendert:0 entfallen:0 (entfallen=Zeitablauf, kein Alarm)
 # Regel: Ist die Zeit oben aelter als 48 Stunden, sind die Termine in den
