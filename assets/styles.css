@@ -535,7 +535,12 @@ a.card.hoverable:hover>.k-more{gap:9px}
 :root[data-theme="dark"] .card-ic{background:var(--o-700);color:#fff}
 
 /* Kurskarte */
-a.kurs-card{display:flex;flex-direction:column;color:var(--ink)}
+.kurs-card-wrap{display:flex;flex-direction:column}
+.k-inhouse-link{
+  margin-top:8px;font-size:.82rem;font-weight:700;color:var(--muted);text-align:right;
+}
+.k-inhouse-link:hover{color:var(--brand-lo)}
+a.kurs-card{display:flex;flex-direction:column;flex:1;color:var(--ink)}
 a.kurs-card:hover{color:var(--ink)}
 .kurs-card .k-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
 .k-badge{
