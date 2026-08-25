@@ -137,8 +137,8 @@ h4{font-size:1.03rem;letter-spacing:-.01em}
 p{margin:0 0 1.05em}
 a{color:var(--brand-lo);text-decoration:none;transition:color .18s var(--ease)}
 a:hover{color:var(--brand)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) a{color:var(--brand)}}
-:root[data-theme="dark"] a{color:var(--brand)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) a:not(.btn){color:var(--brand)}}
+:root[data-theme="dark"] a:not(.btn){color:var(--brand)}
 strong,b{font-weight:680;color:var(--ink)}
 small{font-size:.83rem}
 ul,ol{margin:0 0 1.1em;padding-left:1.25em}
@@ -790,6 +790,11 @@ tr:last-child td{border-bottom:0}
 .sticky-cta a.pri{background:var(--brand-lo);color:#fff}
 .sticky-cta a.sec{border:1.5px solid var(--line);color:var(--ink)}
 @media (max-width:760px){.sticky-cta{display:flex}body{padding-bottom:74px}}
+/* Dunkelmodus: --brand-lo ist dort #12B8B8 (hell) statt dunkel — weiß darauf
+   nur 2,45:1. Gleiche Regel wie bei .btn.primary weiter oben: in der Fläche
+   auf --o-900 wechseln, das bleibt in beiden Modi dunkel genug für weißen Text. */
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .sticky-cta a.pri{background:var(--o-900)}}
+:root[data-theme="dark"] .sticky-cta a.pri{background:var(--o-900)}
 
 /* ---------- Reveal ---------- */
 .js .rv{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
