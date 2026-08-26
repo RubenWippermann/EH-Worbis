@@ -78,8 +78,8 @@
      (2) NUR " · " mit Leerzeichen auf beiden Seiten. Klammern und Halbgeviertstrich
          bleiben: "Erste-Hilfe-Ausbildung (Grund-/Fuehrerscheinkurs)" und
          "Lehrkraefte-Ausbildung – Themenbereich 1" sind echte Titelbestandteile.
-     (3) NETZ, KEIN WURZELFIX. Der Name wird nicht mehr GEZEIGT, der faelschlich
-         oeffentliche Inhouse-Kurs bleibt BUCHBAR. public=0 gehoert Ruben.
+     (3) NUR ein Anzeige-Netz auf dieser Seite. Die eigentliche Datenkorrektur
+         gehoert nicht in diesen Client-Code.
      Am 17.08.2026 traf die Regel auf erstehilfe-worbis.de 0 von 37 Titeln — sie ist
      Vorsorge, keine Reparatur. Genau deshalb steht das hier: Eine Regel, die heute
      nichts tut, wird sonst beim naechsten Umbau als tot entfernt. */
