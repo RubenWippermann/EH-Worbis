@@ -703,7 +703,7 @@ tr:last-child td{border-bottom:0}
 }
 
 /* Modal (Warteliste) */
-.modal-bd{position:fixed;inset:0;background:rgba(20,32,31,.6);backdrop-filter:blur(4px);z-index:200;display:grid;place-items:center;padding:20px}
+.modal-bd{position:fixed;inset:0;background:rgba(20,32,31,.75);z-index:200;display:grid;place-items:center;padding:20px}
 .modal-bd[hidden]{display:none}
 .modal{background:var(--card);border-radius:var(--r-xl);padding:30px;max-width:480px;width:100%;box-shadow:var(--sh-3);max-height:90dvh;overflow-y:auto}
 .modal h3{margin-bottom:.25em}
@@ -721,7 +721,7 @@ tr:last-child td{border-bottom:0}
   border:1px solid var(--line);background:var(--card);font-size:.9rem;font-weight:560;color:var(--ink-2);
   transition:.18s var(--ease);
 }
-.chip:hover{border-color:var(--brand);color:var(--brand-lo);background:var(--bg-tint);transform:translateY(-1px)}
+.chip:hover{border-color:var(--brand);color:var(--brand-lo);background:var(--bg-tint)}
 
 /* ---------- Seiten-Hero (Unterseiten) ---------- */
 /* Preis im Kopf der Kursseite — grosse Zahl, kleine Einordnung. Die Einordnung ist
@@ -784,7 +784,7 @@ tr:last-child td{border-bottom:0}
 /* ---------- Sticky Mobile-CTA ---------- */
 .sticky-cta{
   position:fixed;left:0;right:0;bottom:0;z-index:90;display:none;gap:9px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));
-  background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(14px);border-top:1px solid var(--line);
+  background:var(--bg);border-top:1px solid var(--line);
 }
 .sticky-cta a{flex:1;padding:13px;border-radius:var(--r-pill);text-align:center;font-weight:660;font-size:.94rem}
 .sticky-cta a.pri{background:var(--brand-lo);color:#fff}
