@@ -1,4 +1,4 @@
-/* Erste Hilfe Duderstadt — UI (Navigation, Reveal, Theme, Kleinigkeiten) */
+/* Erste Hilfe Worbis — UI (Navigation, Reveal, Theme, Kleinigkeiten) */
 (function () {
   'use strict';
 
