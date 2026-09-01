@@ -377,12 +377,19 @@
         }).then(function (res) {
           if (res && res.ok) {
             form.innerHTML =
-              '<div class="form-success"><span class="form-success-ic">✓</span>' +
+              '<div class="form-success" tabindex="-1"><span class="form-success-ic">✓</span>' +
               '<h3>Danke — eure Anfrage ist da!</h3>' +
               '<p>Wir melden uns persönlich und zeitnah.' +
               (res.ticket_id ? ' Eure Vorgangsnummer: <b>' + esc(res.ticket_id) + '</b>.' : '') + '</p>' +
               '<p class="muted">Dringend? Ruft uns an: <a href="tel:' + TEL_HREF + '">' + TEL + '</a></p></div>';
             form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            // 🔴 01.09.2026: scrollIntoView bewegt nur den sichtbaren Ausschnitt — wer mit
+            // Screenreader arbeitet, bekam die Bestätigung nie vorgelesen, der Fokus blieb
+            // auf dem (jetzt verschwundenen) Absenden-Knopf. tabindex="-1" + focus() holt
+            // den Screenreader-Fokus aktiv zur Bestätigung, ohne sie in die Tab-Reihenfolge
+            // aufzunehmen.
+            var success = form.querySelector('.form-success');
+            if (success) success.focus();
             return;
           }
           var msg;
@@ -429,15 +436,39 @@
             '<span>Ich bin einverstanden, dass meine Daten zur Bearbeitung der Wartelisten-Anfrage ' +
             'gespeichert werden. <a href="/datenschutz/">Datenschutz</a></span></label>' +
           '<button class="btn primary block" type="submit">Auf die Warteliste setzen</button>' +
-          '<p class="form-status"></p>' +
+          '<p class="form-status" aria-live="polite"></p>' +
         '</form>' +
       '</div>';
     document.body.appendChild(d);
-    function close() { d.hidden = true; }
+    var zuletztFokussiert = null;
+    function close() {
+      d.hidden = true;
+      // Fokus zurück zum Auslöser — ohne das landet Tastatur/Screenreader nach dem
+      // Schliessen "irgendwo" (meist ganz oben im Dokument), statt dort weiterzumachen,
+      // wo die Interaktion begann.
+      if (zuletztFokussiert && document.body.contains(zuletztFokussiert)) zuletztFokussiert.focus();
+    }
     d.querySelector('.modal-x').addEventListener('click', close);
     d.addEventListener('click', function (e) { if (e.target === d) close(); });
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !d.hidden) close(); });
+    document.addEventListener('keydown', function (e) {
+      if (d.hidden) return;
+      if (e.key === 'Escape') { close(); return; }
+      // 🔴 01.09.2026: role="dialog"+aria-modal="true" allein haelt Tastaturfokus NICHT
+      // im Dialog — nur unterstuetzende Software, die das auswertet, tut das zuverlaessig.
+      // Ohne echten Fokus-Kreis landet Tab irgendwann im Hintergrund der Seite, obwohl der
+      // Dialog visuell noch offen ist. Fokus manuell auf die fokussierbaren Elemente im
+      // Dialog begrenzen.
+      if (e.key === 'Tab') {
+        var box = d.querySelector('.modal');
+        var fokussierbar = box.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+        if (!fokussierbar.length) return;
+        var erst = fokussierbar[0], letzt = fokussierbar[fokussierbar.length - 1];
+        if (e.shiftKey && document.activeElement === erst) { e.preventDefault(); letzt.focus(); }
+        else if (!e.shiftKey && document.activeElement === letzt) { e.preventDefault(); erst.focus(); }
+      }
+    });
     wireForms(d); // nur das Formular im Modal anbinden
+    d.__ehdSetTrigger = function (el) { zuletztFokussiert = el; };
   }
 
   function wireWaitlist() {
@@ -446,6 +477,7 @@
       if (!b) return;
       ensureModal();
       var m = document.getElementById('wlModal');
+      if (m.__ehdSetTrigger) m.__ehdSetTrigger(b);
       m.querySelector('[name="termin"]').value = b.getAttribute('data-termin') || '';
       m.querySelector('#wlSub').textContent =
         (b.getAttribute('data-titel') || '') + ' — ' + (b.getAttribute('data-datum') || '') +
