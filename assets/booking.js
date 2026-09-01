@@ -296,6 +296,12 @@
         if (el.getAttribute('data-prerendered')) return;
         el.innerHTML = '<p class="termine-empty">Die Termine lassen sich gerade nicht laden. ' +
           'Bitte kurz später erneut versuchen oder anrufen: <a href="tel:' + TEL_HREF + '">' + TEL + '</a>.</p>';
+        // 🔴 01.09.2026: Der animierte "Live"-Punkt im Hero-Panel hatte hier kein
+        // Vorrendering und blieb bei einem Feed-Ausfall unveraendert stehen — ein
+        // pulsierender "Live"-Badge direkt neben "laesst sich nicht laden" behauptet
+        // eine Aktualitaet, die gerade nicht stimmt. Badge in genau diesem Fall verbergen.
+        var badge = el.parentElement && el.parentElement.querySelector('.live-dot');
+        if (badge) badge.style.display = 'none';
       });
     });
   }
