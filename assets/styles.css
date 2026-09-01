@@ -192,7 +192,6 @@ hr{border:0;border-top:1px solid var(--line);margin:2.5rem 0}
   transition:background .18s var(--ease),color .18s var(--ease) !important;
 }
 .nav-cta:hover{background:#fff;color:var(--o-950) !important}
-.nav-tel{display:inline-flex;align-items:center;gap:7px;font-weight:700 !important;color:var(--band-ink) !important}
 .menu-toggle{
   display:none;margin-left:auto;width:44px;height:44px;border:var(--kante) solid var(--band-mute);background:transparent;
   border-radius:0;color:var(--band-ink);cursor:pointer;align-items:center;justify-content:center;
@@ -803,11 +802,9 @@ tr:last-child td{border-bottom:0}
 
 /* ---------- Utilities ---------- */
 .center{text-align:center}
-.mt-0{margin-top:0}.mb-0{margin-bottom:0}
-.mt-2{margin-top:20px}.mt-3{margin-top:32px}.mt-4{margin-top:44px}
+.mt-2{margin-top:20px}.mt-3{margin-top:32px}
 .muted{color:var(--muted)}
 .nowrap{white-space:nowrap}
-.hide{display:none}
 
 /* 🔴 17.08.2026 GEMESSEN — und die Messung fand einen Fehler, der SCHON LIVE WAR.
    Anlass war der neue Menuepunkt „Shop". Nachgemessen im Browser bei 1.440 px:
@@ -825,6 +822,3 @@ tr:last-child td{border-bottom:0}
       Nummer stehen. Deshalb `min-width:1201px` und nicht global.
    ⚠️ Wer einen weiteren Menuepunkt ergaenzt, misst nach: nach diesem Eingriff sind
       22 px Luft, das sind zwei Zeichen. Ein neunter Punkt passt NICHT. */
-@media (min-width:1201px){
-  .nav-tel{display:none}
-}
