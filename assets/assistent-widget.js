@@ -82,7 +82,12 @@
     ".eha-eingabe{flex:1;min-height:40px;padding:0 10px;border:1px solid #d8e0ea;border-radius:20px;font:inherit}" +
     ".eha-senden{width:40px;height:40px;border-radius:50%;border:0;background:#0b63a9;color:#fff;cursor:pointer;font-size:16px}" +
     ".eha-senden:disabled,.eha-eingabe:disabled{opacity:.55;cursor:not-allowed}" +
-    "@media (max-width:480px){.eha-fenster{right:8px;bottom:72px}}";
+    /* 02.09.2026: Auf schmalen Bildschirmen liegt unter 760px eine feste CTA-Leiste
+       (.sticky-cta) am unteren Rand — ohne diesen Abstand deckte der Chat-Knopf den
+       rechten CTA-Button ("Kurs anfragen") teilweise ab. Bottom hier angehoben, damit
+       beide nebeneinander Platz haben, nicht übereinander. */
+    "@media (max-width:760px){#eh-assistent{bottom:86px}.eha-fenster{bottom:154px}}" +
+    "@media (max-width:480px){.eha-fenster{right:8px;bottom:142px}}";
   document.head.appendChild(style);
 
   var knopf = wurzel.querySelector(".eha-knopf");
