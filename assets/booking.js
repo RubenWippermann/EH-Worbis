@@ -282,8 +282,25 @@
           return;
         }
         if (limit > 0 || arten.length) {
-          el.innerHTML = '<div class="termine-rows">' +
-            (limit > 0 ? list.slice(0, limit) : list).map(rowHTML).join('') + '</div>';
+          // 06.09.2026, DK-Entscheidung: eine begrenzte Vorschau (Hero-Panel) soll die
+          // naechsten BUCHBAREN Termine zeigen, nicht einfach die naechsten nach Datum.
+          // Ausgebuchte werden fuer DIESE Auswahl uebersprungen — in der vollstaendigen
+          // Liste weiter unten (renderFiltered, ohne limit) bleiben sie unveraendert
+          // sichtbar, das hier aendert nur, was in den begrenzten Kasten passt.
+          var quelle = list;
+          if (limit > 0) {
+            var buchbar = list.filter(function (k) { return k.eventStatus !== 'cancelled' && !k.ausgebucht; });
+            if (!buchbar.length) {
+              // Kein einziger buchbarer Termin da: nicht leer lassen, sondern ehrlich sagen,
+              // dass gerade alles belegt ist, mit einem Weg zur Anfrage statt einer Sackgasse.
+              el.innerHTML = '<p class="termine-empty">Diese Termine sind belegt — ' +
+                'schreib uns, wir finden einen Platz: <a href="/inhouse-kurse/#anfrage">Anfragen →</a></p>';
+              return;
+            }
+            quelle = buchbar;
+          }
+          var gezeigt = limit > 0 ? quelle.slice(0, limit) : quelle;
+          el.innerHTML = '<div class="termine-rows">' + gezeigt.map(rowHTML).join('') + '</div>';
           return;
         }
         renderFiltered(el, list);
