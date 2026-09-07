@@ -148,7 +148,7 @@ hr{border:0;border-top:1px solid var(--line);margin:2.5rem 0}
 ::selection{background:var(--o-200);color:var(--o-950)}
 
 .wrap{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:22px}
-.skip{position:absolute;left:-9999px;top:0;background:var(--brand);color:#fff;padding:12px 18px;border-radius:0 0 var(--r-sm) 0;z-index:200;font-weight:640}
+.skip{position:absolute;left:-9999px;top:0;background:var(--brand-lo);color:#fff;padding:12px 18px;border-radius:0 0 var(--r-sm) 0;z-index:200;font-weight:640}
 .skip:focus{left:0}
 
 /* ---------- Header / Navigation ---------- */
