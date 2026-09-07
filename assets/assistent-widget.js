@@ -68,8 +68,12 @@
   var style = document.createElement("style");
   style.textContent =
     "#eh-assistent{position:fixed;right:16px;bottom:16px;z-index:9000;font-family:inherit}" +
-    ".eha-knopf{width:56px;height:56px;border-radius:50%;border:0;background:#0b63a9;color:#fff;font-size:24px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.22)}" +
-    ".eha-fenster{position:fixed;right:16px;bottom:84px;width:min(340px,calc(100vw - 32px));height:min(460px,calc(100vh - 140px));background:#fff;border-radius:14px;box-shadow:0 10px 34px rgba(0,0,0,.28);display:flex;flex-direction:column;overflow:hidden}" +
+    /* 07.09.2026: 56px auf 48px verkleinert — deckte auf mehreren Seiten den rechten Rand
+       normaler (nicht-sticky) Vollbreite-CTA-Buttons ab, wenn diese in die untere rechte
+       Ecke scrollten (apple-design-Audit). 48px bleibt über dem 44px-Mindestmaß fuer
+       Touch-Ziele, verkleinert aber die Ueberlappungsflaeche spuerbar. */
+    ".eha-knopf{width:48px;height:48px;border-radius:50%;border:0;background:#0b63a9;color:#fff;font-size:20px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.22)}" +
+    ".eha-fenster{position:fixed;right:16px;bottom:76px;width:min(340px,calc(100vw - 32px));height:min(460px,calc(100vh - 140px));background:#fff;border-radius:14px;box-shadow:0 10px 34px rgba(0,0,0,.28);display:flex;flex-direction:column;overflow:hidden}" +
     ".eha-fenster[hidden]{display:none}" +
     ".eha-kopf{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:#0b63a9;color:#fff;font-weight:700}" +
     ".eha-schliessen{background:none;border:0;color:#fff;font-size:16px;cursor:pointer;padding:2px 6px}" +
@@ -86,8 +90,8 @@
        (.sticky-cta) am unteren Rand — ohne diesen Abstand deckte der Chat-Knopf den
        rechten CTA-Button ("Kurs anfragen") teilweise ab. Bottom hier angehoben, damit
        beide nebeneinander Platz haben, nicht übereinander. */
-    "@media (max-width:760px){#eh-assistent{bottom:86px}.eha-fenster{bottom:154px}}" +
-    "@media (max-width:480px){.eha-fenster{right:8px;bottom:142px}}";
+    "@media (max-width:760px){#eh-assistent{bottom:86px}.eha-fenster{bottom:146px}}" +
+    "@media (max-width:480px){.eha-fenster{right:8px;bottom:134px}}";
   document.head.appendChild(style);
 
   var knopf = wurzel.querySelector(".eha-knopf");
