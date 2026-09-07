@@ -334,6 +334,11 @@ body.menu-open .menu-toggle span::after{top:0;transform:rotate(-45deg)}
   /* Aneinanderstoßende Knöpfe brauchen Breite; untereinander wieder gestapelt. */
   .hero-actions{flex-direction:column;align-items:stretch}
   .hero-actions .btn + .btn{margin-left:0;margin-top:-2px}
+  /* 07.09.2026: bei voller Breite ragten diese Knoepfe unter den Chat-Kreis
+     (48px Durchmesser, right:16px) — 56px rechts freihalten reicht mit Puffer.
+     Nur diese zwei gestapelten Knoepfe, nicht global: sticky-cta hat ihre eigene
+     Abstandsregel (02.09.), .btn.block in Formularen bleibt unveraendert. */
+  .hero-actions .btn{margin-right:56px}
 }
 
 /* Weißer Kasten auf dem dunklen Band — der Kalender ist das hellste Element
