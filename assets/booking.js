@@ -142,6 +142,20 @@
     return !!(k && k.bg_uk_abrechenbar && BG_UK_ARTEN[k.kursart]);
   }
 
+  /* 08.09.2026 (GESAMTLISTE #416/block-b#53): dieselbe "buchbar zuerst"-Sortierung wie
+     build.py termin_zeilen_html() — muss zeichengleich bleiben, sonst springt die Liste
+     beim Nachladen um. Datum bleibt die Sortierung INNERHALB jeder Gruppe. */
+  function sortgruppe(k) {
+    if (k.eventStatus === 'cancelled') return 2;
+    return k.ausgebucht ? 1 : 0;
+  }
+  function buchbarZuerst(a, b) {
+    var ga = sortgruppe(a), gb = sortgruppe(b);
+    if (ga !== gb) return ga - gb;
+    var da = (a.datum || '') + (a.uhrzeit || ''), db = (b.datum || '') + (b.uhrzeit || '');
+    return da < db ? -1 : da > db ? 1 : 0;
+  }
+
   /* ---------- Rendering einer Termin-Zeile ---------- */
   function rowHTML(k) {
     var tags = [k.stadt];
@@ -242,7 +256,7 @@
       var a = artSel ? artSel.value : '', s = stadtSel ? stadtSel.value : '', bg = bgChk && bgChk.checked;
       var f = all.filter(function (k) {
         return (!a || k.kursart === a) && (!s || k.stadt === s) && (!bg || istBgUk(k));
-      });
+      }).sort(buchbarZuerst);
       rows.innerHTML = f.length ? f.map(rowHTML).join('')
         : '<p class="termine-empty">Für diese Auswahl ist gerade nichts frei. <a href="/inhouse-kurse/">Wunschtermin anfragen →</a></p>';
       if (count) count.textContent = f.length + (f.length === 1 ? ' Termin' : ' Termine');
