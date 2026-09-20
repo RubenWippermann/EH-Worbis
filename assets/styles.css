@@ -348,7 +348,7 @@ body.menu-open .menu-toggle span::after{top:0;transform:rotate(-45deg)}
   box-shadow:none;padding:26px;position:relative;
   border-top:6px solid var(--accent);
 }
-.hero-panel h3{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:1.06rem;margin-bottom:4px}
+.hero-panel h3,.hero-panel h2{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:1.06rem;letter-spacing:-.018em;margin-bottom:4px}
 .hero-panel .panel-note{color:var(--muted);font-size:.86rem;margin-bottom:16px}
 .live-dot{display:inline-flex;align-items:center;gap:7px;font-size:.72rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--ok)}
 .live-dot i{width:7px;height:7px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 0 rgba(21,128,61,.55);animation:pulse 2.4s infinite}
@@ -520,9 +520,10 @@ h1,h2,h3,h4,h5,h6,dt,th{overflow-wrap:break-word}
   transition:background .18s var(--ease),color .18s var(--ease),border-color .18s var(--ease);
 }
 .card h3{margin-bottom:.4em}
+.card h2{font-size:clamp(1.2rem,1rem + .6vw,1.5rem);letter-spacing:-.018em;margin-bottom:.4em}
 .card p{color:var(--ink-2);margin-bottom:0;font-size:.97rem;overflow-wrap:break-word}
 .card.hoverable:hover{background:var(--band);border-color:var(--band);color:var(--band-ink)}
-.card.hoverable:hover h3,.card.hoverable:hover p,.card.hoverable:hover .k-price{color:var(--band-ink)}
+.card.hoverable:hover h3,.card.hoverable:hover h2,.card.hoverable:hover p,.card.hoverable:hover .k-price{color:var(--band-ink)}
 .card.hoverable:hover .k-more{color:var(--accent)}
 .card.hoverable:hover .card-ic{background:var(--accent);color:var(--o-950)}
 /* Als Link genutzte Karten behalten die dunkle Textfarbe (nur .k-more ist orange) */
@@ -553,7 +554,7 @@ a.kurs-card:hover{color:var(--ink)}
   border:0;text-transform:uppercase;
 }
 .k-ue{font-size:.79rem;color:var(--muted);font-weight:600}
-.kurs-card h3{font-size:1.14rem}
+.kurs-card h3,.kurs-card h2{font-size:1.14rem}
 .kurs-card .k-foot{
   margin-top:auto;padding-top:18px;display:flex;align-items:center;justify-content:space-between;gap:12px;
   border-top:1px solid var(--line-2);
