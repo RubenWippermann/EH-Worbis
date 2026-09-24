@@ -53,6 +53,7 @@ Jeder Satz ist eigenständig zitierbar und mit der Fundstelle belegt.
 - [Offene Termine buchen](https://www.erstehilfe-worbis.de/offene-kurse/)
 - [Kurs vor Ort anfragen](https://www.erstehilfe-worbis.de/inhouse-kurse/)
 - [BG/UK-Abrechnung](https://www.erstehilfe-worbis.de/bg-uk-abrechnung/)
+- [Ratgeber](https://www.erstehilfe-worbis.de/ratgeber/)
 - [Dozent:in werden](https://www.erstehilfe-worbis.de/dozent-werden/)
 - [Firmenprofil / Faktenblatt (PDF)](https://www.erstehilfe-worbis.de/firmenprofil.pdf) — kompaktes Faktenblatt zu Angebot, Standorten, DGUV-Ermächtigung, Preisen und Kostenübernahme
 - [Kontakt](https://www.erstehilfe-worbis.de/kontakt/)
