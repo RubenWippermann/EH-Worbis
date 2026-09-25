@@ -58,7 +58,7 @@
 
   /* Kantig: alle Radien auf 0. Bewusst als Token und nicht als Suchen-Ersetzen —
      wer eine Ecke zurückholen will, ändert eine Zeile statt hundert. */
-  --r-xs:0; --r-sm:0; --r:0; --r-lg:0; --r-xl:0; --r-pill:0;
+  --r-xs:6px; --r-sm:10px; --r:14px; --r-lg:20px; --r-xl:28px; --r-pill:999px;
 
   /* Dunkles Band: trägt ganze Abschnitte, Kopf und Fuß. Feste Hexwerte statt
      Token, damit es im Dunkelmodus NICHT umkippt — ein Band, das im Dunkeln
@@ -68,13 +68,13 @@
   --band-ink:#FFFFFF;
   --band-mute:#CCFBFB;
 
-  --kante:2px;            /* eine Stärke für alle Rahmen — Ruhe im Kantigen */
+  --kante:1px;            /* eine Stärke für alle Rahmen — Ruhe im Kantigen */
 
   /* Schatten fast aus: „kräftig" heißt Kante, nicht Schweben. --sh-1/2 bleiben
      minimal für Kopfleiste und Modal, --sh-3/brand sind bewusst leer. */
-  --sh-1:0 1px 0 rgba(20,32,31,.06);
-  --sh-2:0 2px 0 rgba(20,32,31,.08);
-  --sh-3:none;
+  --sh-1:0 1px 2px rgba(20,32,31,.06);
+  --sh-2:0 8px 24px -12px rgba(20,32,31,.16);
+  --sh-3:0 20px 48px -24px rgba(20,32,31,.22);
   --sh-brand:none;
 
   --wrap:1180px;
@@ -119,20 +119,20 @@ html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:cal
 body{
   margin:0;background:var(--bg);color:var(--ink);
   font-family:'InterVar',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
-  font-size:17px;line-height:1.65;font-feature-settings:'cv02','cv03','cv04','ss01';
+  font-size:17px;line-height:1.7;font-feature-settings:'cv02','cv03','cv04','ss01';
   -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden;
 }
 img,svg,video{max-width:100%;height:auto;display:block}
 /* Plakativ = schwerer und enger. 850 statt 760, Laufweite deutlich negativ.
    Zeilenhöhe 1.02 bei H1: bei dieser Größe wirkt 1.14 luftig, nicht laut. */
-h1,h2,h3,h4{margin:0 0 .5em;line-height:1.1;letter-spacing:-.026em;font-weight:850;color:var(--ink)}
-h1{font-size:clamp(2.6rem,1.5rem + 4.6vw,4.9rem);letter-spacing:-.045em;line-height:1.02}
-h2{font-size:clamp(1.95rem,1.25rem + 2.7vw,3.2rem);letter-spacing:-.036em}
+h1,h2,h3,h4{margin:0 0 .5em;line-height:1.12;letter-spacing:-.02em;font-weight:700;color:var(--ink)}
+h1{font-size:clamp(2.2rem,1.4rem + 3.4vw,3.8rem);letter-spacing:-.032em;line-height:1.07}
+h2{font-size:clamp(1.7rem,1.2rem + 1.9vw,2.6rem);letter-spacing:-.026em}
 /* ⚠️ KEIN globales `text-transform:uppercase` auf Überschriften: Deutsche
    Komposita („Betriebssanitäter-Aufbaulehrgang") werden in Versalien unlesbar
    lang, und Screenreader lesen sie teils buchstabierend. Versalien tragen hier
    nur die kurzen Vorzeilen (.eyebrow) und Knopftexte. */
-h3{font-size:clamp(1.2rem,1rem + .6vw,1.5rem);letter-spacing:-.018em}
+h3{font-size:clamp(1.15rem,1rem + .5vw,1.4rem);letter-spacing:-.014em;font-weight:650}
 h4{font-size:1.03rem;letter-spacing:-.01em}
 p{margin:0 0 1.05em}
 a{color:var(--brand-lo);text-decoration:none;transition:color .18s var(--ease)}
@@ -172,11 +172,11 @@ hr{border:0;border-top:1px solid var(--line);margin:2.5rem 0}
    der Firmenname dadurch dunkel auf dunkel und war unsichtbar. Erst im
    Screenshot aufgefallen, nicht im Code. Gilt für JEDES `b`/`strong` auf
    dunklem Grund (siehe .hero, .cta-band, .section.band). */
-.brand-txt b{font-size:1.02rem;font-weight:850;letter-spacing:-.028em;white-space:nowrap;color:var(--band-ink)}
+.brand-txt b{font-size:1.02rem;font-weight:700;letter-spacing:-.028em;white-space:nowrap;color:var(--band-ink)}
 .brand-txt small{font-size:.685rem;color:var(--band-mute);letter-spacing:.075em;text-transform:uppercase;font-weight:620;white-space:nowrap}
 .nav-links{display:flex;align-items:center;gap:2px;margin-left:auto}
 .nav-links a{
-  color:var(--band-mute);font-weight:600;font-size:.945rem;padding:9px 12px;border-radius:0;
+  color:var(--band-mute);font-weight:600;font-size:.945rem;padding:12px 12px;border-radius:var(--r-sm);
   transition:background .18s var(--ease),color .18s var(--ease);white-space:nowrap;
 }
 .nav-links a:hover{background:var(--band);color:var(--band-ink)}
@@ -184,17 +184,16 @@ hr{border:0;border-top:1px solid var(--line);margin:2.5rem 0}
    auf dunklem Grund ist ein Farbwechsel allein zu leise. */
 .nav-links a.active{color:var(--accent);font-weight:700;box-shadow:inset 0 -3px 0 var(--accent)}
 
-}
 .nav-cta{
   margin-left:10px;background:var(--accent);color:var(--o-950) !important;
-  padding:11px 20px !important;border-radius:0;font-weight:800 !important;
+  padding:11px 20px !important;border-radius:var(--r-sm);font-weight:700 !important;
   letter-spacing:.02em;box-shadow:none;
   transition:background .18s var(--ease),color .18s var(--ease) !important;
 }
 .nav-cta:hover{background:#fff;color:var(--o-950) !important}
 .menu-toggle{
   display:none;margin-left:auto;width:44px;height:44px;border:var(--kante) solid var(--band-mute);background:transparent;
-  border-radius:0;color:var(--band-ink);cursor:pointer;align-items:center;justify-content:center;
+  border-radius:var(--r-sm);color:var(--band-ink);cursor:pointer;align-items:center;justify-content:center;
 }
 .menu-toggle span{display:block;width:19px;height:2px;background:currentColor;border-radius:2px;position:relative;transition:.22s var(--ease)}
 .menu-toggle span::before,.menu-toggle span::after{content:'';position:absolute;left:0;width:19px;height:2px;background:currentColor;border-radius:2px;transition:.22s var(--ease)}
@@ -222,7 +221,7 @@ body.menu-open .menu-toggle span::after{top:0;transform:rotate(-45deg)}
    Farbklotz — bei „plakativ" trägt die Fläche, nicht der Schatten. */
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:9px;
-  padding:16px 30px;border-radius:0;font-weight:800;font-size:1rem;letter-spacing:.01em;
+  padding:16px 30px;border-radius:var(--r);font-weight:700;font-size:1rem;letter-spacing:.01em;
   border:var(--kante) solid transparent;cursor:pointer;text-align:center;line-height:1.25;
   transition:background .18s var(--ease),border-color .18s var(--ease),color .18s var(--ease);
 }
@@ -237,7 +236,7 @@ body.menu-open .menu-toggle span::after{top:0;transform:rotate(-45deg)}
 .btn.light:hover{background:var(--accent);border-color:var(--accent);color:var(--o-950)}
 .btn.outline-light{background:transparent;border-color:#fff;color:#fff}
 .btn.outline-light:hover{background:#fff;color:var(--o-950)}
-.btn.sm{padding:11px 20px;font-size:.92rem}
+.btn.sm{padding:13px 20px;font-size:.92rem}
 /* ⚠️ DUNKELMODUS: `--brand-lo` ist dort NICHT dunkel, sondern #12B8B8 (hell).
    Weiße Schrift darauf ergibt rund 2,3:1 — im hellen Modus war derselbe Knopf
    5,28:1. Gefunden im Screenshot der Kursseite im Dunkelmodus, nicht im Code.
@@ -254,7 +253,7 @@ body.menu-open .menu-toggle span::after{top:0;transform:rotate(-45deg)}
 .btn[disabled]{opacity:.55;cursor:not-allowed;transform:none}
 
 /* ---------- Sections ---------- */
-.section{padding:clamp(58px,7vw,104px) 0}
+.section{padding:clamp(72px,9vw,128px) 0}
 /* Abgesetzte Abschnitte tragen eine harte Kante oben statt eines weichen
    Farbwechsels — die Kante ist das Gestaltungsmittel dieser Fassung. */
 .section.soft{background:var(--bg-tint);border-top:var(--kante) solid var(--brand);border-bottom:var(--kante) solid var(--line)}
@@ -272,7 +271,7 @@ body.menu-open .menu-toggle span::after{top:0;transform:rotate(-45deg)}
 .section-head.center{margin-inline:auto;text-align:center}
 .section-head p{color:var(--muted);font-size:1.09rem;margin-bottom:0}
 .eyebrow{
-  display:inline-flex;align-items:center;gap:10px;font-size:.78rem;font-weight:820;letter-spacing:.16em;
+  display:inline-flex;align-items:center;gap:10px;font-size:.78rem;font-weight:700;letter-spacing:.16em;
   text-transform:uppercase;color:var(--brand-lo);margin-bottom:18px;
 }
 .eyebrow::before{content:'';width:30px;height:4px;background:var(--brand);border-radius:0}
@@ -286,8 +285,8 @@ body.menu-open .menu-toggle span::after{top:0;transform:rotate(-45deg)}
    sieht, ohne beide Seiten nebeneinanderzulegen. */
 .hero{
   position:relative;overflow:hidden;background:var(--band);color:var(--band-ink);
-  padding:clamp(56px,7vw,104px) 0 clamp(52px,6.5vw,96px);
-  border-bottom:6px solid var(--accent);
+  padding:clamp(72px,9vw,128px) 0 clamp(64px,8vw,112px);
+  border-bottom:0;
 }
 /* Ein einziger diagonaler Keil in der tieferen Marke — kein Weichzeichner,
    keine Leuchtwolken. Reduziert sich bei „weniger Bewegung" nicht, weil er
@@ -305,7 +304,7 @@ body.menu-open .menu-toggle span::after{top:0;transform:rotate(-45deg)}
    darunter gelandet, und genau das sieht man erst auf dem echten Gerät. */
 .hero h1 .hl{color:var(--accent);background:none;-webkit-background-clip:initial;background-clip:initial}
 .hero-sub{font-size:clamp(1.08rem,.98rem + .4vw,1.28rem);color:var(--band-mute);max-width:36em;margin-bottom:1.7em}
-.hero-actions{display:flex;flex-wrap:wrap;gap:0;margin-bottom:30px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:30px}
 /* Knöpfe stoßen aneinander — ein Block statt zwei Pillen. */
 .hero-actions .btn{flex:0 1 auto}
 .hero-actions .btn + .btn{margin-left:-2px}
@@ -346,9 +345,9 @@ body.menu-open .menu-toggle span::after{top:0;transform:rotate(-45deg)}
 /* Weißer Kasten auf dem dunklen Band — der Kalender ist das hellste Element
    der Seite, weil er das ist, wofür Leute kommen. */
 .hero-panel{
-  background:var(--card);border:0;border-radius:0;
+  background:var(--card);border:0;border-radius:var(--r-lg);
   box-shadow:none;padding:26px;position:relative;
-  border-top:6px solid var(--accent);
+  border-top:3px solid var(--accent);
 }
 .hero-panel h3,.hero-panel h2{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:1.06rem;letter-spacing:-.018em;margin-bottom:4px}
 .hero-panel .panel-note{color:var(--muted);font-size:.86rem;margin-bottom:16px}
@@ -397,10 +396,10 @@ body.menu-open .menu-toggle span::after{top:0;transform:rotate(-45deg)}
 /* Terminliste als geschlossener Block: keine schwebenden Kärtchen mit Abstand,
    sondern Zeilen mit harten Trennlinien — wie ein Aushang, nicht wie eine App. */
 .termine{display:flex;flex-direction:column;gap:0}
-.termine-rows{display:flex;flex-direction:column;gap:0;border:var(--kante) solid var(--ink)}
+.termine-rows{display:flex;flex-direction:column;gap:0;border:var(--kante) solid var(--line);border-radius:var(--r);overflow:hidden}
 .termin-row{
   display:grid;grid-template-columns:auto 1fr auto auto;gap:16px;align-items:center;
-  padding:17px 18px;background:var(--card);border:0;border-top:1px solid var(--line);border-radius:0;
+  padding:17px 18px;background:var(--card);border:0;border-top:1px solid var(--line);border-radius:var(--r);
   color:var(--ink);transition:background .16s var(--ease),color .16s var(--ease);
 }
 .termine-rows > .termin-row:first-child{border-top:0}
@@ -410,7 +409,7 @@ a.termin-row:hover .termin-date small,a.termin-row:hover .termin-info small{colo
 a.termin-row:hover .termin-meta b{color:var(--accent)}
 a.termin-row:hover .termin-meta small{color:var(--band-mute)}
 .termin-date{display:flex;flex-direction:column;min-width:128px}
-.termin-date b{font-size:1.06rem;font-weight:850;letter-spacing:-.02em}
+.termin-date b{font-size:1.06rem;font-weight:700;letter-spacing:-.02em}
 .termin-date small{color:var(--muted);font-size:.79rem}
 .termin-info{display:flex;flex-direction:column;min-width:0}
 .termin-info b{font-size:.99rem;font-weight:620;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -418,12 +417,12 @@ a.termin-row:hover .termin-meta small{color:var(--band-mute)}
 .termin-meta{display:flex;flex-direction:column;align-items:flex-end;text-align:right}
 /* Der Preis ist ein Verkaufsargument (30 € für den Führerscheinkurs) und wird
    entsprechend groß gesetzt — vorher stand er in Fließtextgröße daneben. */
-.termin-meta b{font-size:1.35rem;font-weight:850;letter-spacing:-.03em;color:var(--ink);white-space:nowrap}
+.termin-meta b{font-size:1.35rem;font-weight:700;letter-spacing:-.03em;color:var(--ink);white-space:nowrap}
 .termin-meta small{color:var(--ok);font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
 .termin-row.is-full .termin-meta small{color:var(--muted)}
 .termin-cta{
-  display:inline-flex;align-items:center;gap:5px;padding:11px 17px;border-radius:0;
-  background:var(--brand-lo);color:#fff;font-weight:800;font-size:.87rem;white-space:nowrap;
+  display:inline-flex;align-items:center;gap:5px;padding:11px 17px;border-radius:var(--r-sm);
+  background:var(--brand-lo);color:#fff;font-weight:700;font-size:.87rem;white-space:nowrap;
   border:var(--kante) solid var(--brand-lo);cursor:pointer;transition:background .18s var(--ease),color .18s var(--ease);
 }
 a.termin-row:hover .termin-cta{background:var(--accent);color:var(--o-950);border-color:var(--accent)}
@@ -439,7 +438,7 @@ a.termin-row:hover .termin-cta{background:var(--accent);color:var(--o-950);borde
 .termin-row.is-cancelled .termin-date b,
 .termin-row.is-cancelled .termin-info b,
 .termin-row.is-cancelled .termin-meta b{text-decoration:line-through;text-decoration-thickness:2px}
-.termin-row.is-cancelled .termin-meta small{color:var(--brand-lo);font-weight:800}
+.termin-row.is-cancelled .termin-meta small{color:var(--brand-lo);font-weight:700}
 .termin-row.is-cancelled .termin-cta{background:transparent;border-color:var(--line);
   color:var(--muted);cursor:default}
 .termine-empty{padding:26px;border:1px dashed var(--line);border-radius:var(--r);color:var(--muted);text-align:center;background:var(--bg-soft)}
@@ -477,7 +476,7 @@ h1,h2,h3,h4,h5,h6,dt,th{overflow-wrap:break-word}
 .tf-bg{display:inline-flex;align-items:center;gap:8px;font-size:.9rem;color:var(--ink-2);cursor:pointer;padding:10px 14px;border:1px solid var(--line);border-radius:var(--r-pill)}
 .tf-count{margin-left:auto;color:var(--muted);font-size:.87rem;font-weight:600}
 .termine-skeleton{display:flex;flex-direction:column;gap:10px}
-.sk-row{height:70px;border-radius:0;background:linear-gradient(100deg,var(--line-2) 30%,var(--line) 50%,var(--line-2) 70%);background-size:220% 100%;animation:sk 1.4s infinite}
+.sk-row{height:70px;border-radius:var(--r-sm);background:linear-gradient(100deg,var(--line-2) 30%,var(--line) 50%,var(--line-2) 70%);background-size:220% 100%;animation:sk 1.4s infinite}
 @keyframes sk{0%{background-position:130% 0}100%{background-position:-30% 0}}
 
 @media (max-width:720px){
@@ -518,7 +517,7 @@ h1,h2,h3,h4,h5,h6,dt,th{overflow-wrap:break-word}
 /* Karten: kräftige Kante statt Schatten, Hover kippt die Fläche um.
    Kein Anheben — „plakativ" heißt flächig, nicht schwebend. */
 .card{
-  background:var(--card);border:var(--kante) solid var(--ink);border-radius:0;padding:26px;
+  background:var(--card);border:var(--kante) solid var(--ink);border-radius:var(--r-lg);padding:26px;
   transition:background .18s var(--ease),color .18s var(--ease),border-color .18s var(--ease);
 }
 .card h3{margin-bottom:.4em}
@@ -534,7 +533,7 @@ a.card:hover{color:var(--ink)}
 a.card>.k-more{margin-top:16px}
 a.card.hoverable:hover>.k-more{gap:9px}
 .card-ic{
-  width:52px;height:52px;border-radius:0;display:grid;place-items:center;margin-bottom:18px;
+  width:52px;height:52px;border-radius:var(--r);display:grid;place-items:center;margin-bottom:18px;
   background:var(--band);color:#fff;transition:background .18s var(--ease),color .18s var(--ease);
 }
 .card-ic svg{width:23px;height:23px}
@@ -551,8 +550,8 @@ a.kurs-card{display:flex;flex-direction:column;flex:1;color:var(--ink)}
 a.kurs-card:hover{color:var(--ink)}
 .kurs-card .k-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
 .k-badge{
-  display:inline-flex;align-items:center;padding:5px 12px;border-radius:0;
-  background:var(--band);color:#fff;font-size:.71rem;font-weight:820;letter-spacing:.1em;
+  display:inline-flex;align-items:center;padding:5px 12px;border-radius:var(--r-pill);
+  background:var(--band);color:#fff;font-size:.71rem;font-weight:700;letter-spacing:.1em;
   border:0;text-transform:uppercase;
 }
 .k-ue{font-size:.79rem;color:var(--muted);font-weight:600}
@@ -563,15 +562,15 @@ a.kurs-card:hover{color:var(--ink)}
 }
 /* Preis groß: „ab 30 €" ist bei uns das stärkste Argument und stand bisher in
    Fließtextgröße in der Fußzeile der Karte. */
-.k-price{font-weight:850;color:var(--ink);font-size:clamp(1.4rem,1.2rem + .6vw,1.75rem);letter-spacing:-.03em;line-height:1.1}
+.k-price{font-weight:700;color:var(--ink);font-size:clamp(1.4rem,1.2rem + .6vw,1.75rem);letter-spacing:-.03em;line-height:1.1}
 .k-price small{display:block;font-weight:600;color:var(--muted);font-size:.72rem;letter-spacing:.04em;text-transform:uppercase}
-.k-more{font-size:.9rem;font-weight:800;color:var(--brand-lo);display:inline-flex;align-items:center;gap:5px}
+.k-more{font-size:.9rem;font-weight:700;color:var(--brand-lo);display:inline-flex;align-items:center;gap:5px}
 a.kurs-card:hover .k-more{gap:9px}
 
 /* Stat-Band */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--kante);background:var(--ink);border:var(--kante) solid var(--ink);border-radius:0;overflow:hidden}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--kante);background:var(--ink);border:var(--kante) solid var(--ink);border-radius:var(--r-lg);overflow:hidden}
 .stat{background:var(--card);padding:30px 22px;text-align:center}
-.stat b{display:block;font-size:clamp(2rem,1.4rem + 2vw,3rem);font-weight:850;letter-spacing:-.04em;color:var(--brand-lo);line-height:1.02}
+.stat b{display:block;font-size:clamp(2rem,1.4rem + 2vw,3rem);font-weight:700;letter-spacing:-.04em;color:var(--brand-lo);line-height:1.02}
 .stat span{display:block;margin-top:8px;font-size:.82rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.08em}
 @media (max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
 
@@ -579,8 +578,8 @@ a.kurs-card:hover .k-more{gap:9px}
 .steps{counter-reset:s;display:grid;gap:18px}
 .step{position:relative;padding-left:64px;counter-increment:s}
 .step::before{
-  content:counter(s);position:absolute;left:0;top:0;width:48px;height:48px;border-radius:0;
-  display:grid;place-items:center;font-weight:850;font-size:1.2rem;color:#fff;
+  content:counter(s);position:absolute;left:0;top:0;width:48px;height:48px;border-radius:var(--r-sm);
+  display:grid;place-items:center;font-weight:700;font-size:1.2rem;color:#fff;
   background:var(--band);box-shadow:none;
 }
 .step h3{margin-bottom:.3em;font-size:1.06rem;letter-spacing:-.01em}
@@ -650,7 +649,7 @@ tr:last-child td{border-bottom:0}
    Vorher: Verlauf über drei Türkistöne plus radialer Glanz — das ist genau die
    Optik, die Duderstadt auch hat. */
 .cta-band{
-  position:relative;overflow:hidden;border-radius:0;padding:clamp(38px,5vw,64px);
+  position:relative;overflow:hidden;border-radius:var(--r-xl);padding:clamp(38px,5vw,64px);
   background:var(--band);color:#fff;border-top:6px solid var(--accent);
 }
 .cta-band>*{position:relative;z-index:1}
@@ -662,7 +661,7 @@ tr:last-child td{border-bottom:0}
 .hero-panel b,.hero-panel strong{color:var(--ink)}
 .cta-band h2{color:#fff;max-width:16ch}
 .cta-band p{color:rgba(255,255,255,.9);max-width:52ch;font-size:1.06rem}
-.cta-actions{display:flex;flex-wrap:wrap;gap:0;margin-top:26px}
+.cta-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
 .cta-actions .btn + .btn{margin-left:-2px}
 @media (max-width:560px){.cta-actions{flex-direction:column;align-items:stretch}.cta-actions .btn + .btn{margin-left:0;margin-top:-2px}}
 .cta-band a:not(.btn){color:#fff;text-decoration:underline}
@@ -738,7 +737,7 @@ tr:last-child td{border-bottom:0}
    Pflicht, nicht Deko: „ab 30 EUR" ohne „pro Person im offenen Kurs" waere eine
    Zusage, die fuer jede Inhouse-Anfrage falsch ist. */
 .kurs-preis{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 12px;margin:-.2em 0 1.4em}
-.kurs-preis b{font-size:clamp(2rem,1.5rem + 2vw,3rem);font-weight:850;letter-spacing:-.04em;
+.kurs-preis b{font-size:clamp(2rem,1.5rem + 2vw,3rem);font-weight:700;letter-spacing:-.04em;
   line-height:1;color:var(--brand-lo)}
 .kurs-preis span{font-size:.95rem;color:var(--ink-2);font-weight:600}
 
