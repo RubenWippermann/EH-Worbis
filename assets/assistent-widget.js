@@ -91,7 +91,14 @@
        rechten CTA-Button ("Kurs anfragen") teilweise ab. Bottom hier angehoben, damit
        beide nebeneinander Platz haben, nicht übereinander. */
     "@media (max-width:760px){#eh-assistent{bottom:86px}.eha-fenster{bottom:146px}}" +
-    "@media (max-width:480px){.eha-fenster{right:8px;bottom:134px}}";
+    "@media (max-width:480px){.eha-fenster{right:8px;bottom:134px}" +
+    /* DESIGN-NACHTAUDIT-4 (29.09., SW1-Gegenprüfung): auf 375px deckte der Knopf beim
+       Durchscrollen wiederholt die letzte Zeile von Aufzählungen/Terminkarten ab
+       (z. B. /kurse/erste-hilfe-ausbildung/, letzter Stichpunkt). Gleiches Prinzip wie
+       die 56px→48px-Verkleinerung vom 07.09.: kleinere Trefferfläche statt Inhalte
+       überall im Voraus freizuräumen. 44px ist die WCAG-Mindestgröße für Touch-Ziele
+       (Kommentar oben bei .eha-knopf) — kleiner geht ohne diese Grenze zu reißen nicht. */
+    "#eh-assistent .eha-knopf{width:44px;height:44px;font-size:18px}}";
   document.head.appendChild(style);
 
   var knopf = wurzel.querySelector(".eha-knopf");
