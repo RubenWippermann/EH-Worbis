@@ -483,7 +483,12 @@ h1,h2,h3,h4,h5,h6,dt,th{overflow-wrap:break-word}
   .termin-row{grid-template-columns:1fr auto;gap:6px 14px;padding:14px}
   .termin-date{grid-column:1;min-width:0}
   .termin-meta{grid-column:2;grid-row:1}
+  /* DESIGN-NACHTAUDIT-4 (29.09.): Titel/Ort erben von der Desktop-Regel `white-space:nowrap`
+     + Ellipsis (eine Zeile neben Datum/Preis/Knopf) — hier steht der Titel aber in einer
+     eigenen, vollbreiten Zeile (grid-row:2), das Abschneiden ist deshalb nur noch ein Fehler,
+     kein Platzgrund mehr ("Lehrkräfte-Ausbildung – Themenb…" statt des vollen Namens). */
   .termin-info{grid-column:1 / -1;grid-row:2}
+  .termin-info b,.termin-info small{white-space:normal;overflow:visible;text-overflow:clip}
   .termin-cta{grid-column:1 / -1;grid-row:3;justify-content:center;margin-top:6px}
   .tf-count{width:100%;margin-left:0}
 }
