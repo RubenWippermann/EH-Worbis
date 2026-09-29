@@ -412,8 +412,14 @@ a.termin-row:hover .termin-meta small{color:var(--band-mute)}
 .termin-date b{font-size:1.06rem;font-weight:700;letter-spacing:-.02em}
 .termin-date small{color:var(--muted);font-size:.79rem}
 .termin-info{display:flex;flex-direction:column;min-width:0}
-.termin-info b{font-size:.99rem;font-weight:620;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.termin-info small{color:var(--muted);font-size:.79rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+/* DESIGN-NACHTAUDIT-4 (29.09., SW5-Gegenprüfung): weiterhin abgeschnittene Titel bei
+   820px (z. B. "Betriebssanitäter – Grundausbildung (Kompaktblock, 8 Tage + …") — die
+   erste Fassung dieses Fixes stand nur in der @media(max-width:720px)-Regel, zwischen
+   720 und der eigentlich breiten Desktop-Spalte blieb white-space:nowrap bestehen, und
+   ein einzelnes 1fr-Feld neben Datum/Preis/Knopf ist für lange Kursnamen nie breit genug.
+   Jetzt grundsätzlich umbrechen lassen statt an einer Breite zu raten, ab der es reicht. */
+.termin-info b{font-size:.99rem;font-weight:620;overflow-wrap:break-word}
+.termin-info small{color:var(--muted);font-size:.79rem;overflow-wrap:break-word}
 .termin-meta{display:flex;flex-direction:column;align-items:flex-end;text-align:right}
 /* Der Preis ist ein Verkaufsargument (30 € für den Führerscheinkurs) und wird
    entsprechend groß gesetzt — vorher stand er in Fließtextgröße daneben. */
@@ -483,12 +489,7 @@ h1,h2,h3,h4,h5,h6,dt,th{overflow-wrap:break-word}
   .termin-row{grid-template-columns:1fr auto;gap:6px 14px;padding:14px}
   .termin-date{grid-column:1;min-width:0}
   .termin-meta{grid-column:2;grid-row:1}
-  /* DESIGN-NACHTAUDIT-4 (29.09.): Titel/Ort erben von der Desktop-Regel `white-space:nowrap`
-     + Ellipsis (eine Zeile neben Datum/Preis/Knopf) — hier steht der Titel aber in einer
-     eigenen, vollbreiten Zeile (grid-row:2), das Abschneiden ist deshalb nur noch ein Fehler,
-     kein Platzgrund mehr ("Lehrkräfte-Ausbildung – Themenb…" statt des vollen Namens). */
   .termin-info{grid-column:1 / -1;grid-row:2}
-  .termin-info b,.termin-info small{white-space:normal;overflow:visible;text-overflow:clip}
   .termin-cta{grid-column:1 / -1;grid-row:3;justify-content:center;margin-top:6px}
   .tf-count{width:100%;margin-left:0}
 }
