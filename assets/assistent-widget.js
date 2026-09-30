@@ -67,7 +67,11 @@
 
   var style = document.createElement("style");
   style.textContent =
-    "#eh-assistent{position:fixed;right:16px;bottom:16px;z-index:9000;font-family:inherit}" +
+    "#eh-assistent{position:fixed;right:16px;bottom:16px;z-index:9000;font-family:inherit;transition:opacity .18s ease}" +
+    /* DESIGN-NACHTAUDIT-4 (30.09.): siehe Begründung beim scroll-Listener unten —
+       waehrend des Scrollens durchsichtig UND nicht klickbar, damit er nie wirklich
+       gelesenen Text abdeckt; sobald die Seite steht, sofort wieder da. */
+    "#eh-assistent.eha-scrollt{opacity:.16;pointer-events:none}" +
     /* 07.09.2026: 56px auf 48px verkleinert — deckte auf mehreren Seiten den rechten Rand
        normaler (nicht-sticky) Vollbreite-CTA-Buttons ab, wenn diese in die untere rechte
        Ecke scrollten (apple-design-Audit). 48px bleibt über dem 44px-Mindestmaß fuer
@@ -137,6 +141,28 @@
 
   knopf.addEventListener("click", function () { offen ? schliessen() : oeffnen(); });
   wurzel.querySelector(".eha-schliessen").addEventListener("click", schliessen);
+
+  // DESIGN-NACHTAUDIT-4 (30.09., SW1/Betriebsleitung-Gegenprüfung): der Knopf ist
+  // `position:fixed` — auf jeder langen Seite gibt es zwangsläufig eine Scroll-
+  // Position, an der er über Fließtext/Überschriften zu liegen kommt (gemessen auf
+  // /kurse/erste-hilfe-ausbildung/ UND /widerruf/, zwei völlig verschiedene Layouts).
+  // Eine seitenspezifische Größenkorrektur (44px-Fix von eben) verschiebt das Problem
+  // nur, sie löst es nicht — jede neue Seite mit anderer Textlänge trifft dieselbe
+  // Klasse Fund erneut. Strukturelle Lösung: WÄHREND des Scrollens (wenn Text ohnehin
+  // gerade vorbeizieht, niemand ihn in diesem Moment lesen will) wird der Knopf
+  // durchsichtig UND klickunempfindlich; steht die Seite still, kommt er sofort
+  // zurück. Deckt keinen gelesenen Text mehr ab, bleibt aber jederzeit erreichbar,
+  // sobald man zu lesen aufhört.
+  (function () {
+    var scrollTimer = null;
+    var wurzelEl = document.getElementById("eh-assistent");
+    if (!wurzelEl) return;
+    window.addEventListener("scroll", function () {
+      if (!offen) wurzelEl.classList.add("eha-scrollt");
+      if (scrollTimer) clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(function () { wurzelEl.classList.remove("eha-scrollt"); }, 220);
+    }, { passive: true });
+  })();
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
