@@ -851,3 +851,12 @@ tr:last-child td{border-bottom:0}
 .site-footer .brand-txt b{color:var(--ink)}
 .site-footer .brand-txt small{color:var(--muted)}
 .muted a,.prose p a,.prose li a,.section-head p a,.faq-body a,.foot-brand p a{text-decoration:underline;text-underline-offset:.16em}
+
+/* Hero-Einstieg: gestaffelt, nur opacity/transform, Endzustand immer sichtbar; reduced-motion: aus (globale Regel oben) */
+@media (prefers-reduced-motion:no-preference){
+  .hero .hero-grid > div > .eyebrow,.hero h1,.hero .hero-sub,.hero .hero-actions{animation:ehHeroEin .6s cubic-bezier(.2,.7,.2,1) both}
+  .hero h1{animation-delay:.08s}
+  .hero .hero-sub{animation-delay:.16s}
+  .hero .hero-actions{animation-delay:.24s}
+}
+@keyframes ehHeroEin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
