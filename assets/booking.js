@@ -21,8 +21,8 @@
   var ORG_LEAD   = CFG.orgLead    || 'personal-paramedic';
   var ORG_FEEDS  = CFG.orgFeeds   || ['bww', 'personal-paramedic'];
   var QUELLE     = CFG.quelle     || 'erstehilfe-duderstadt';
-  var TEL        = CFG.tel        || '+49 5527 748849 5';
-  var TEL_HREF   = CFG.telHref    || '+4955277488495';
+  var TEL        = CFG.tel        || '+49 5527 748 7518';
+  var TEL_HREF   = CFG.telHref    || '+4955277487518';
 
   var MONTHS = ['Jan.', 'Feb.', 'März', 'Apr.', 'Mai', 'Juni', 'Juli', 'Aug.', 'Sep.', 'Okt.', 'Nov.', 'Dez.'];
 
