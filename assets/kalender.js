@@ -23,7 +23,7 @@
     ['eh', 'Erste Hilfe', /^(EH|NFT|AED|REA)/i, /erste[\s-]hilfe|notfall|reanimation|aed|baby|kind/i],
     ['bs', 'Brandschutz', /^(BH|BSH|EVA|BRA)/i, /brandschutz|evakuierung|feuer/i],
     ['san', 'Sanitätsdienst', /^(BSG|BSA|BSF|SAN)/i, /sanit/i],
-    ['lk', 'Ausbilder & Lehrkräfte', /^(LK|AUS)/i, /lehrkr|ausbilder|multiplikator|dozent/i]
+    ['lk', 'Lehrkräfte & Ausbilder', /^(LK|LB|AUS)/i, /lehrkr|ausbilder|multiplikator|dozent/i]
   ];
   function kategorie(k) {
     var art = String(k.kursart || ''), t = String(k.titel || '');

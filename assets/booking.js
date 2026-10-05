@@ -231,7 +231,23 @@
       if (k.kursart && !arten[k.kursart]) arten[k.kursart] = label(titelAnzeige(k.titel));
       if (k.stadt) staedte[k.stadt] = 1;
     });
-    var artKeys = Object.keys(arten).sort(function (a, b) { return arten[a].localeCompare(arten[b]); });
+    // Lehrkräfte-/Ausbilder-Formate (Kürzel LK…, LB…, AUS…) stehen gesammelt in einer optgroup,
+    // mit festem Namen je Kürzel statt dem Titel des ersten Kurses (sonst hieße die ganze
+    // LKF-Option wie eine Variante, z. B. „Schwerpunkt Kindernotfälle“).
+    var LK_NAMEN = {
+      LK1: 'Ausbilder-Qualifikation – Themenbereich 1', LK2: 'Ausbilder-Qualifikation – Themenbereich 2',
+      LKF: 'Ausbilder-Fortbildung', LKFK: 'Ausbilder-Fortbildung – Schwerpunkt Kindernotfälle',
+      LKBSQ: 'Ausbildung Lehrkraft betrieblicher Sanitätsdienst',
+      LKBSAS: 'Arbeitsschutzschulung Lehrkraft Betriebssanitätsdienst',
+      LBEH: 'Lehrbeauftragter Erste Hilfe', LBEHF: 'Lehrbeauftragten-Fortbildung'
+    };
+    function istLk(c) { return /^(LK|LB|AUS)/i.test(c); }
+    Object.keys(arten).forEach(function (c) { if (istLk(c) && LK_NAMEN[c]) arten[c] = LK_NAMEN[c]; });
+    function nachName(a, b) { return arten[a].localeCompare(arten[b]); }
+    var artKeys = Object.keys(arten).sort(nachName);
+    var artFlach = artKeys.filter(function (c) { return !istLk(c); });
+    var artLk = artKeys.filter(istLk);
+    function optHtml(c) { return '<option value="' + esc(c) + '">' + esc(arten[c]) + '</option>'; }
     var stadtKeys = Object.keys(staedte).sort();
     var showArt = artKeys.length > 1, showStadt = stadtKeys.length > 1;
     var hasBg = all.some(istBgUk);
@@ -240,7 +256,9 @@
     if (showArt || showStadt || hasBg) {
       bar = '<div class="termine-filter">' +
         (showArt ? '<select class="tf-art" aria-label="Nach Kursart filtern"><option value="">Alle Kursarten</option>' +
-          artKeys.map(function (c) { return '<option value="' + esc(c) + '">' + esc(arten[c]) + '</option>'; }).join('') + '</select>' : '') +
+          artFlach.map(optHtml).join('') +
+          (artLk.length ? '<optgroup label="Lehrkräfte &amp; Ausbilder">' + artLk.map(optHtml).join('') + '</optgroup>' : '') +
+          '</select>' : '') +
         (showStadt ? '<select class="tf-stadt" aria-label="Nach Ort filtern"><option value="">Alle Orte</option>' +
           stadtKeys.map(function (s) { return '<option value="' + esc(s) + '">' + esc(s) + '</option>'; }).join('') + '</select>' : '') +
         (hasBg ? '<label class="tf-bg"><input type="checkbox" class="tf-bgchk"> Nur BG/UK-abrechenbar</label>' : '') +
