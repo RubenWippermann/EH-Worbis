@@ -860,3 +860,8 @@ tr:last-child td{border-bottom:0}
   .hero .hero-actions{animation-delay:.24s}
 }
 @keyframes ehHeroEin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* Symmetrie 05.10.2026: Knöpfe einer 2er-Gruppe gleich breit (vorher je nach Beschriftung 224-258 px); Gruppen mit 3 Knöpfen bleiben im Umbruch. */
+@media (min-width:561px){.hero-actions:not(:has(> :nth-child(3))),.cta-actions:not(:has(> :nth-child(3))){display:grid;grid-auto-flow:column;grid-auto-columns:1fr;justify-content:start;width:max-content;max-width:100%}}
+/* Symmetrie 05.10.2026: letzte Karte allein in der dritten Spalte-Reihe (16 Karten, 3 Spalten) mittig statt links */
+@media (min-width:961px){.g3>:last-child:nth-child(3n+1){grid-column:2}}
