@@ -396,13 +396,13 @@ body.menu-open .menu-toggle span::after{top:0;transform:rotate(-45deg)}
 /* Terminliste als geschlossener Block: keine schwebenden Kärtchen mit Abstand,
    sondern Zeilen mit harten Trennlinien — wie ein Aushang, nicht wie eine App. */
 .termine{display:flex;flex-direction:column;gap:0}
-.termine-rows{display:flex;flex-direction:column;gap:0;border:var(--kante) solid var(--line);border-radius:var(--r);overflow:hidden}
+.termine-rows{display:flex;flex-direction:column;gap:12px}
+@media (min-width:768px){.termine-rows{gap:16px}}
 .termin-row{
   display:grid;grid-template-columns:auto 1fr auto auto;gap:16px;align-items:center;
-  padding:17px 18px;background:var(--card);border:0;border-top:1px solid var(--line);border-radius:var(--r);
+  padding:17px 18px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);
   color:var(--ink);transition:background .16s var(--ease),color .16s var(--ease);
 }
-.termine-rows > .termin-row:first-child{border-top:0}
 /* Kein Schweben, sondern Farbumschlag der ganzen Zeile. */
 a.termin-row:hover{background:var(--band);color:var(--band-ink)}
 a.termin-row:hover .termin-date small,a.termin-row:hover .termin-info small{color:var(--band-mute)}
