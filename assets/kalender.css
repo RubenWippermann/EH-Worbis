@@ -18,7 +18,7 @@
 }
 .kal *, .kal *::before, .kal *::after { box-sizing: border-box; }
 .kal-kopf { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
-.kal-titel { flex: 1; margin: 0; text-align: center; font-size: clamp(1.25rem, 2.4vw, 1.6rem); line-height: 1.2; }
+.kal-titel { flex: 1; margin: 0; text-align: center; -webkit-hyphens: manual; hyphens: manual; overflow-wrap: normal; font-size: clamp(1.25rem, 2.4vw, 1.6rem); line-height: 1.2; }
 .kal-btn {
   min-width: 44px; min-height: 44px; padding: 0 14px; border-radius: 999px;
   border: 1px solid var(--kal-line); background: var(--kal-card); color: var(--kal-ink);
