@@ -817,9 +817,8 @@ tr:last-child td{border-bottom:0}
 :root[data-theme="dark"] .sticky-cta a.pri{background:var(--o-900)}
 
 /* ---------- Reveal ---------- */
-.js .rv{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
-.js .rv.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none}}
+/* Sichtbarkeit 06.10.: nur transform, nie opacity:0 — bei stehender Animationsuhr (iOS-Safari, Hintergrund-Tab) bleibt Inhalt sonst unsichtbar */
+@media (prefers-reduced-motion:no-preference){.js .rv{transform:translateY(18px);transition:transform .6s var(--ease)}.js .rv.in{transform:none}}
 
 /* ---------- Utilities ---------- */
 .center{text-align:center}
@@ -859,7 +858,7 @@ tr:last-child td{border-bottom:0}
   .hero .hero-sub{animation-delay:.16s}
   .hero .hero-actions{animation-delay:.24s}
 }
-@keyframes ehHeroEin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes ehHeroEin{from{transform:translateY(10px)}to{transform:none}}
 
 /* Symmetrie 05.10.2026: Knöpfe einer 2er-Gruppe gleich breit (vorher je nach Beschriftung 224-258 px); Gruppen mit 3 Knöpfen bleiben im Umbruch. */
 @media (min-width:561px){.hero-actions:not(:has(> :nth-child(3))),.cta-actions:not(:has(> :nth-child(3))){display:grid;grid-auto-flow:column;grid-auto-columns:1fr;justify-content:start;width:max-content;max-width:100%}}

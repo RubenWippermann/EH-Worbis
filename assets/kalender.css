@@ -115,12 +115,14 @@
 }
 
 /* Bewegung — dezent, abschaltbar */
-@keyframes kal-rein-r { from { opacity: 0; transform: translateX(18px); } to { opacity: 1; transform: none; } }
-@keyframes kal-rein-l { from { opacity: 0; transform: translateX(-18px); } to { opacity: 1; transform: none; } }
-@keyframes kal-auf { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+@keyframes kal-rein-r { from { transform: translateX(18px); } to { transform: none; } }
+@keyframes kal-rein-l { from { transform: translateX(-18px); } to { transform: none; } }
+@keyframes kal-auf { from { transform: translateY(-6px); } to { transform: none; } }
+@media (prefers-reduced-motion: no-preference) {
 .kal-rein-r { animation: kal-rein-r .26s ease-out; }
 .kal-rein-l { animation: kal-rein-l .26s ease-out; }
 .kal-auf { animation: kal-auf .22s ease-out; }
+}
 @media (prefers-reduced-motion: reduce) {
   .kal-rein-r, .kal-rein-l, .kal-auf { animation: none; }
   .kal-btn, .kal-tag, .kal-cta { transition: none; }
