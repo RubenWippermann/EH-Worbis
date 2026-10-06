@@ -50,6 +50,12 @@
   function tageImMonat(y, m) { return new Date(Date.UTC(y, m + 1, 0)).getUTCDate(); }
   function datumLang(s) { var p = teile(s); return WT_LANG[wochentag(s)] + ', ' + p[2] + '. ' + MONATE[p[1]] + ' ' + p[0]; }
   function datumKurz(s) { var p = teile(s); return p[2] + '. ' + MONATE[p[1]]; }
+  function zeitraumText(a, b) {                     // „13.–23. Oktober 2026“
+    var x = teile(a), y = teile(b);
+    if (x[0] !== y[0]) return datumKurz(a) + ' ' + x[0] + ' – ' + datumKurz(b) + ' ' + y[0];
+    if (x[1] !== y[1]) return datumKurz(a) + ' – ' + datumKurz(b) + ' ' + y[0];
+    return x[2] + '.–' + y[2] + '. ' + MONATE[y[1]] + ' ' + y[0];
+  }
 
   function titelAnzeige(t) {                       // Inhouse-Auftraggeber hinter " · " nie zeigen
     var s = String(t == null ? '' : t), kopf = s.split(/\s+[·•]\s+/)[0].trim();
@@ -280,7 +286,8 @@
     var k = e.k, voll = !!k.ausgebucht, n = k._tage.length;
     var zeit = e.von ? esc(e.von) + (e.bis ? '–' + esc(e.bis) : '') + ' Uhr' : 'Uhrzeit folgt';
     var ort = k.adresse || k.stadt || '';
-    var zeitraum = n > 1 ? 'Tag ' + e.nr + ' von ' + n + ' · ' + datumKurz(k._tage[0].d) + ' bis ' + datumKurz(k._tage[n - 1].d) + ' ' + teile(k._tage[n - 1].d)[0] : '';
+    // Ein mehrtägiger Kurs ist EIN Kurs: Zeitraum + Zahl der Kurstage, nie „Tag x von n“.
+    var zeitraum = n > 1 ? zeitraumText(k._tage[0].d, k._tage[n - 1].d) + ', ' + n + ' Kurstage' : '';
     var aktion;
     if (voll) {
       aktion = '<span class="kal-badge is-voll">Ausgebucht</span><a class="kal-link" href="' + esc(this.liste) + '">Andere Termine ansehen</a>';
@@ -303,10 +310,13 @@
   };
 
   Kalender.prototype.agenda = function (y, m, anz) {
-    var out = '';
+    var out = '', gezeigt = [];
     for (var d = 1; d <= anz; d++) {
       var tag = iso(y, m, d), e = this.proTag[tag];
       if (!e) continue;
+      // Terminliste: jeder Kurs nur EINMAL, an seinem ersten Tag in diesem Monat.
+      e = e.filter(function (x) { if (gezeigt.indexOf(x.k) >= 0) return false; gezeigt.push(x.k); return true; });
+      if (!e.length) continue;
       out += '<section class="kal-agtag' + (tag === this.heute ? ' is-heute' : '') + (tag < this.heute ? ' is-vorbei' : '') + '">' +
         '<h3><span class="kal-agnr">' + d + '</span><span>' + WT_LANG[wochentag(tag)] + '<small>' + datumKurz(tag) + '</small></span></h3>' +
         e.map(function (x) { return this.karte(x, tag); }, this).join('') + '</section>';
