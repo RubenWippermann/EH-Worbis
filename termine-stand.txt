@@ -1,4 +1,4 @@
-2026-10-31T03:03:58+00:00	92
+2026-10-31T04:22:39+00:00	92
 # startdate_ausgezeichnet=ja
 # quelle=https://software-wippermann.de/api/kurse?org=bww&mit_abgesagten=1
 # fingerabdruck=b915ad31daed
