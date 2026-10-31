@@ -79,6 +79,7 @@ Jeder Satz ist eigenständig zitierbar und mit der Fundstelle belegt.
   - [Ersthelfer, Brandschutzhelfer, Betriebssanitäter: Was ist der Unterschied?](https://www.erstehilfe-worbis.de/ratgeber/ersthelfer-brandschutzhelfer-betriebssanitaeter-vergleich/)
 - [Dozent:in werden](https://www.erstehilfe-worbis.de/dozent-werden/)
 - [Firmenprofil / Faktenblatt (PDF)](https://www.erstehilfe-worbis.de/firmenprofil.pdf) — kompaktes Faktenblatt zu Angebot, Standorten, DGUV-Ermächtigung, Preisen und Kostenübernahme
+- [Volltext der Kernseiten (llms-full.txt)](https://www.erstehilfe-worbis.de/llms-full.txt)
 - [Kontakt](https://www.erstehilfe-worbis.de/kontakt/)
 - [Impressum](https://www.erstehilfe-worbis.de/impressum/) · [Datenschutz](https://www.erstehilfe-worbis.de/datenschutz/) · [AGB](https://www.erstehilfe-worbis.de/agb/) · [Widerruf](https://www.erstehilfe-worbis.de/widerruf/)
 
