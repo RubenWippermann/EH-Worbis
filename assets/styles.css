@@ -12,3 +12,30 @@
 .field-err{display:block;margin-top:6px;font-size:.88rem;font-weight:560;color:var(--err)}
 .consent+.field-err{margin-top:4px}
 .field input[aria-invalid="true"],.field select[aria-invalid="true"],.field textarea[aria-invalid="true"]{border-color:var(--err)}
+
+/* ═══ GLAS-OPTIK (CD-Richtlinie Software Kap. 13, Ruben 31.10.2026; nur Tokens + CSS, keine Logik) ═══
+   Glas nur auf Kopfzeile, Karten (.card), Terminzeilen ausserhalb dunkler Flaechen und Formular-Panels (.form-card); Eingabefelder bleiben
+   deckend (nur Lichtkante). BWW-Gruen nur als Akzent-Toenung des Seitengrunds. Fallback = die deckenden Flaechen oben.
+   Kein Glas auf Glas (Karten in Karten/Formular-Panels, mobiles Menue bleiben deckend), nicht auf dunklen Baendern, kein Glas im Druck,
+   aus bei „Transparenz reduzieren“. Kontrast Worst Case gerechnet: Karte hell 88 % über weiss: Tinte 16,7 / gedaempft 5,19; Kopf 90 %: Menuetext 9,6–12,4. */
+:root{--glas-blur:blur(26px) saturate(1.6);--glas-blur-karte:blur(18px) saturate(1.4);--glas-fuell:rgba(255,255,255,.88);--glas-fuell-kopf:rgba(4,47,47,.90);--glas-licht:inset 0 1px 0 rgba(255,255,255,.95);--glas-kante:rgba(255,255,255,.7);--glas-radius:20px;--glas-grund:radial-gradient(900px 520px at 8% -4%,rgba(11,151,151,.10),transparent 70%),radial-gradient(760px 480px at 96% 6%,rgba(43,210,210,.10),transparent 70%)}
+:root[data-theme=dark]{--glas-fuell:rgba(19,31,29,.90);--glas-licht:inset 0 1px 0 rgba(255,255,255,.08);--glas-kante:rgba(255,255,255,.10);--glas-grund:radial-gradient(900px 520px at 8% -4%,rgba(43,210,210,.12),transparent 70%),radial-gradient(760px 480px at 96% 6%,rgba(18,184,184,.10),transparent 70%)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--glas-fuell:rgba(19,31,29,.90);--glas-licht:inset 0 1px 0 rgba(255,255,255,.08);--glas-kante:rgba(255,255,255,.10);--glas-grund:radial-gradient(900px 520px at 8% -4%,rgba(43,210,210,.12),transparent 70%),radial-gradient(760px 480px at 96% 6%,rgba(18,184,184,.10),transparent 70%)}}
+.field input:not(:focus):not(:focus-visible):not([aria-invalid=true]),.field select:not(:focus):not(:focus-visible):not([aria-invalid=true]),.field textarea:not(:focus):not(:focus-visible):not([aria-invalid=true]){box-shadow:var(--glas-licht)}
+@supports ((-webkit-backdrop-filter:blur(1px)) or (backdrop-filter:blur(1px))){
+body{background:var(--glas-grund),var(--bg);background-repeat:no-repeat}
+.site-header{background:var(--glas-fuell-kopf);-webkit-backdrop-filter:var(--glas-blur);backdrop-filter:var(--glas-blur)}
+.card,.form-card,.termin-row{background:var(--glas-fuell);-webkit-backdrop-filter:var(--glas-blur-karte);backdrop-filter:var(--glas-blur-karte);box-shadow:var(--glas-licht)}
+.card,.form-card{border-radius:var(--glas-radius)}
+.card.hoverable:hover,a.termin-row:hover{box-shadow:var(--glas-licht),0 10px 30px -18px rgba(4,47,47,.35)}
+.section.band .card,.section.band .termin-row,.hero .card,.hero-panel .termin-row,.cta-band .card,.card .card,.card .termin-row,.form-card .card,.form-card .termin-row,.nav-links{-webkit-backdrop-filter:none;backdrop-filter:none}
+.section.band .card,.section.band .termin-row,.hero .card,.cta-band .card,.card .card,.card .termin-row,.form-card .card,.form-card .termin-row{background:var(--card)}
+.hero-panel .termin-row{background:var(--card)}
+}
+@media(prefers-reduced-transparency:reduce){body{background:var(--bg)}.site-header{background:var(--band-tief);-webkit-backdrop-filter:none;backdrop-filter:none}.card,.form-card,.termin-row{background:var(--card);-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none}}
+@media print{.site-header,.card,.form-card,.termin-row{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;background:#fff!important;box-shadow:none!important;color:#000!important}}
+/* KI-Hinweis nahe am Bild (Ruben 31.10.: kleiner Hinweis); Farbe je Flaeche, Kontrast >= 4,5:1 */
+.ki-hinweis{display:block;margin-top:8px;font-size:.78rem;line-height:1.3;color:var(--muted);text-align:right}
+.illu+.ki-hinweis{margin-top:-10px;margin-bottom:18px}
+.illu-card .illu+.ki-hinweis,.illu-card>.ki-hinweis{margin-top:8px;margin-bottom:0}
+.hero .ki-hinweis,.section.band .ki-hinweis,.cta-band .ki-hinweis{color:var(--band-mute)}
