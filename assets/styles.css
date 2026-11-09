@@ -66,3 +66,7 @@ body{background:var(--glas-grund),var(--bg);background-repeat:no-repeat}
 /* A11y 09.11.2026 (2. Runde): Fokus nicht von der festen Mobil-Leiste verdeckt (WCAG 2.4.11); Text-Link-Hover auf hellem Grund war 3,57:1 (brand auf weiss) -> brand-lo 5,15:1 */
 @media(max-width:760px){html{scroll-padding-bottom:96px}}
 .prose a:hover,.faq-body a:hover,p.muted a:hover{color:var(--brand-lo)}
+
+/* Telefon in der festen Mobil-Leiste (Ads-Ziel-URL-Pruefung 09.11.2026): 48 px breit, 44 px hoch */
+.sticky-cta a.tel{flex:0 0 48px;padding:0;display:grid;place-items:center;border:1.5px solid var(--line);color:var(--ink)}
+.sticky-cta a.tel svg{width:20px;height:20px}
