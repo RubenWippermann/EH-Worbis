@@ -52,3 +52,6 @@ body{background:var(--glas-grund),var(--bg);background-repeat:no-repeat}
 
 /* Navigation 1201-1360 px: kompaktere Abstaende, damit der Kopf nicht ueber den Rand laeuft (gemessen 1280 px: +9 px) */
 @media(min-width:1201px) and (max-width:1360px){.nav-links a{padding:12px 9px}.nav-cta{margin-left:6px;padding:11px 16px!important}}
+
+/* Tippflaechen >= 44 px (gemessen 360 px: Menue-Knopf 41,4 px durch Flex-Schrumpfen, Start-Link in der Brotkrume 43,9 px) */
+.menu-toggle{flex:0 0 44px}.crumbs a{min-width:44px;justify-content:center}
