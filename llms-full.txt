@@ -66,7 +66,7 @@ F: Ist der Kurs für den Führerschein anerkannt?
 A: Ja. Maßgeblich ist § 19 der Fahrerlaubnis-Verordnung (FeV) — er verlangt eine Schulung in Erster Hilfe von mindestens neun Unterrichtseinheiten zu je 45 Minuten. Genau diesen Umfang hat unsere Erste-Hilfe-Ausbildung. Wir sind eine von den Berufsgenossenschaften ermächtigte Ausbildungsstätte (DGUV-Kennziffer 8.2122); die Bescheinigung wird von allen Führerscheinstellen anerkannt — für Pkw, Motorrad, Lkw und Bus gleichermaßen.
 
 F: Wie lange ist die Bescheinigung gültig?
-A: § 19 FeV nennt für die Bescheinigung keine Gültigkeitsfrist. Als betriebliche:r Ersthelfer:in musst du in der Regel alle zwei Jahre eine Erste-Hilfe-Fortbildung besuchen. Liegt die letzte Ausbildung oder Fortbildung länger zurück, kann man zunächst weiter als Ersthelfer:in eingesetzt werden; die Fortbildung muss zum nächstmöglichen Zeitpunkt erfolgen ( DGUV Fachbereich Erste Hilfe, FAQ 4.2 ).
+A: § 19 FeV nennt für die Bescheinigung keine Gültigkeitsfrist. Als betriebliche:r Ersthelfer:in musst du in der Regel alle zwei Jahre eine Erste-Hilfe-Fortbildung besuchen. Liegt die letzte Ausbildung oder Fortbildung länger zurück, kann man zunächst weiter als Ersthelfer:in eingesetzt werden; die Fortbildung muss zum nächstmöglichen Zeitpunkt erfolgen ( DGUV Fachbereich Erste Hilfe, FAQ 1.4 ).
 
 F: Kann mein Arbeitgeber den Kurs über die BG abrechnen?
 A: In der Regel ja. Wenn du als betriebliche:r Ersthelfer:in ausgebildet wirst, übernimmt meist der Unfallversicherungsträger die Kosten. Alles dazu steht auf unserer Seite zur BG/UK-Abrechnung .
@@ -78,13 +78,13 @@ F: Brauche ich den Kurs erneut für die Wiedererteilung nach einer MPU?
 A: In der Regel nicht. Bescheinigungen über die Teilnahme an einer Erste-Hilfe-Ausbildung gelten nach § 76 Nr. 11a FeV unbefristet — ein alter Nachweis verliert seine Gültigkeit nicht automatisch durch Zeitablauf. Für die Neuerteilung gelten grundsätzlich dieselben Vorschriften wie bei der Ersterteilung (§ 20 FeV); ob eure Führerscheinstelle im Einzelfall trotzdem einen aktuelleren Nachweis verlangt, entscheidet sie selbst. Ein kurzer Anruf dort vor der Buchung erspart im Zweifel unnötigen Aufwand. Der Kurs selbst ersetzt weder die MPU noch beeinflusst er ihr Ergebnis — das entscheidet ausschließlich die von euch gewählte Begutachtungsstelle.
 
 F: Was, wenn die zwei Jahre schon abgelaufen sind?
-A: Die Vorschrift lässt in Ausnahmefällen einen gewissen Handlungsspielraum: Liegt die Ausbildung oder letzte Fortbildung länger als zwei Jahre zurück, kann die Person zunächst weiter als Ersthelfer:in eingesetzt werden, die Fortbildung muss aber zum nächstmöglichen Zeitpunkt erfolgen ( DGUV Fachbereich Erste Hilfe, FAQ 4.2 ). Tipp: Eine Ausbildung hat denselben Umfang wie die Fortbildung (9 Unterrichtseinheiten) — im Zweifel könnt ihr statt der Fortbildung auch eine Ausbildung buchen. Ruft uns gern kurz an, dann schauen wir gemeinsam in die Bescheinigung.
+A: Die Vorschrift lässt in Ausnahmefällen einen gewissen Handlungsspielraum: Liegt die Ausbildung oder letzte Fortbildung länger als zwei Jahre zurück, kann die Person zunächst weiter als Ersthelfer:in eingesetzt werden, die Fortbildung muss aber zum nächstmöglichen Zeitpunkt erfolgen ( DGUV Fachbereich Erste Hilfe, FAQ 1.4 ). Tipp: Eine Ausbildung hat denselben Umfang wie die Fortbildung (9 Unterrichtseinheiten) — im Zweifel könnt ihr statt der Fortbildung auch eine Ausbildung buchen. Ruft uns gern kurz an, dann schauen wir gemeinsam in die Bescheinigung.
 
 F: Bekomme ich eine Erinnerung vor Ablauf?
 A: Ja. Auf Wunsch erinnern wir rechtzeitig vor Ablauf der Frist — für einzelne Personen genauso wie für ganze Ersthelfer-Teams im Betrieb.
 
 F: Gilt meine Ausbildung nach einem Betriebswechsel weiter?
-A: Ja, die Ausbildung ist personengebunden und gilt weiter, solange die Zwei-Jahres-Frist nicht abgelaufen ist. Im neuen Betrieb meldet ihr euch einfach erneut als Ersthelfer:in; wurde die Frist überschritten, kann die Person zunächst weiter als Ersthelfer:in eingesetzt werden, die Fortbildung muss zum nächstmöglichen Zeitpunkt erfolgen ( DGUV Fachbereich Erste Hilfe, FAQ 4.2 ).
+A: Ja, die Ausbildung ist personengebunden und gilt weiter, solange die Zwei-Jahres-Frist nicht abgelaufen ist. Im neuen Betrieb meldet ihr euch einfach erneut als Ersthelfer:in; wurde die Frist überschritten, kann die Person zunächst weiter als Ersthelfer:in eingesetzt werden, die Fortbildung muss zum nächstmöglichen Zeitpunkt erfolgen ( DGUV Fachbereich Erste Hilfe, FAQ 1.4 ).
 
 F: Rechnet die Unfallkasse den Kurs ab?
 A: Für Beschäftigte in Kitas und Schulen übernimmt in aller Regel die zuständige Unfallkasse die Kosten. Wir bereiten die Abrechnungsunterlagen vor — mehr dazu unter BG/UK-Abrechnung .
@@ -111,7 +111,7 @@ F: Können wir das mit der Erste-Hilfe-Ausbildung kombinieren?
 A: Sehr gern — das ist der beliebteste Kombitag: vormittags Erste Hilfe, nachmittags Brandschutz. Ein Termin, ein Ausfalltag, zwei Nachweise.
 
 F: Wie lange ist die Brandschutzhelfer-Bescheinigung gültig?
-A: Eine feste gesetzliche Ablauffrist gibt es nicht. Nach der ASR A2.2 hat sich bei normaler Brandgefährdung bewährt, die Unterweisung mit Übung alle 3 bis 5 Jahre zu wiederholen; das Intervall legt der Arbeitgeber fest. Nach Umbauten oder geänderter Brandgefährdung lohnt sich eine frühere Auffrischung.
+A: Eine feste gesetzliche Ablauffrist gibt es nicht. Nach der ASR A2.2 hat sich bei normaler Brandgefährdung bewährt, die Unterweisung mit Übung in Abständen von 2 bis 5 Jahren zu wiederholen; das Intervall legt der Arbeitgeber fest. Nach Umbauten oder geänderter Brandgefährdung lohnt sich eine frühere Auffrischung.
 
 F: Trainiert ihr an unserem eigenen Material?
 A: Ja, genau das ist der Punkt. Wir arbeiten mit eurem Notfallkoffer, eurem AED und eurer Sauerstoffflasche — damit im Ernstfall keiner suchen muss.
@@ -197,12 +197,12 @@ https://www.erstehilfe-worbis.de/ratgeber/erste-hilfe-fuehrerschein-worbis/
 
 ### Betriebliche Ersthelfer: Was DGUV Vorschrift 1 verlangt
 Jeder Betrieb mit Beschäftigten muss Erste Hilfe organisieren. Diese Seite fasst zusammen, was § 26 der DGUV Vorschrift 1 zur Zahl der Ersthelfer und zur Fortbildung sagt.
-Quelle: DGUV Vorschrift 1 „Grundsätze der Prävention“ (§ 26 Erste Hilfe), DGUV Publikationen; § 23 SGB VII (Aus- und Fortbildung); DGUV Fachbereich Erste Hilfe: FAQ (u. a. Frage 4.2 zur überschrittenen Fortbildungsfrist); § 10 Arbeitsschutzgesetz (ArbSchG)
+Quelle: DGUV Vorschrift 1 „Grundsätze der Prävention“ (§ 26 Erste Hilfe), DGUV Publikationen; § 23 SGB VII (Aus- und Fortbildung); DGUV Fachbereich Erste Hilfe: FAQ (u. a. Frage 1.4 zur überschrittenen Fortbildungsfrist); § 10 Arbeitsschutzgesetz (ArbSchG)
 https://www.erstehilfe-worbis.de/ratgeber/ersthelfer-betrieb-dguv-vorschrift-1/
 
 ### Erste-Hilfe-Fortbildung und Auffrischung: wann sie fällig ist
 Die Erste-Hilfe-Ausbildung ist kein Nachweis für immer, sobald ihr im Betrieb als Ersthelfer:in benannt seid. Hier steht, wann die Auffrischung fällig ist und was bei einer überschrittenen Frist gilt.
-Quelle: DGUV Vorschrift 1 „Grundsätze der Prävention“ (§ 26 Erste Hilfe), DGUV Publikationen; DGUV Fachbereich Erste Hilfe: FAQ (u. a. Frage 4.2 zur überschrittenen Fortbildungsfrist)
+Quelle: DGUV Vorschrift 1 „Grundsätze der Prävention“ (§ 26 Erste Hilfe), DGUV Publikationen; DGUV Fachbereich Erste Hilfe: FAQ (u. a. Frage 1.4 zur überschrittenen Fortbildungsfrist)
 https://www.erstehilfe-worbis.de/ratgeber/erste-hilfe-fortbildung-auffrischung/
 
 ### Erste Hilfe am Kind: Kurs für Eltern, Großeltern und Paten
@@ -267,7 +267,7 @@ https://www.erstehilfe-worbis.de/ratgeber/arbeitgeberpflichten-erste-hilfe-check
 
 ### Lehrkraft für Erste Hilfe werden: Qualifikation, Fortbildung und Lehrberechtigung
 Wer Erste-Hilfe-Kurse für Betriebe geben will, braucht eine Lehrberechtigung. Der DGUV Grundsatz 304-003 regelt, wie man sie erwirbt, verlängert und wiedererlangt. Hier die wichtigsten Punkte.
-Quelle: DGUV Grundsatz 304-003 „Aus- und Fortbildung von Lehrkräften in der Ersten Hilfe und für den betrieblichen Sanitätsdienst“ (April 2022), DGUV Publikationen; DGUV Fachbereich Erste Hilfe: FAQ (u. a. Frage 4.2 zur überschrittenen Fortbildungsfrist)
+Quelle: DGUV Grundsatz 304-003 „Aus- und Fortbildung von Lehrkräften in der Ersten Hilfe und für den betrieblichen Sanitätsdienst“ (April 2022), DGUV Publikationen; DGUV Fachbereich Erste Hilfe: FAQ (u. a. Frage 1.4 zur überschrittenen Fortbildungsfrist)
 https://www.erstehilfe-worbis.de/ratgeber/erste-hilfe-lehrkraft-werden-ausbilder/
 
 ### Ersthelfer, Brandschutzhelfer, Betriebssanitäter: Was ist der Unterschied?
@@ -277,7 +277,7 @@ https://www.erstehilfe-worbis.de/ratgeber/ersthelfer-brandschutzhelfer-betriebss
 
 ### Wie lange gilt der Erste-Hilfe-Kurs? Gültigkeit für Führerschein und Betrieb
 Ob eure Erste-Hilfe-Bescheinigung noch gilt, hängt davon ab, wofür ihr sie braucht. Für den Führerschein sagt das Gesetz etwas anderes als die Vorschrift für den Betrieb. Hier steht beides mit Fundstelle.
-Quelle: § 19 Fahrerlaubnis-Verordnung (FeV); § 76 Fahrerlaubnis-Verordnung (FeV), Nr. 11a; DGUV Vorschrift 1, § 26 „Zahl und Ausbildung der Ersthelfer“; DGUV Fachbereich Erste Hilfe: FAQ (u. a. Frage 4.2 zur überschrittenen Fortbildungsfrist); ASR A2.2 „Maßnahmen gegen Brände“, Nr. 7.3 Brandschutzhelfer, BAuA (PDF)
+Quelle: § 19 Fahrerlaubnis-Verordnung (FeV); § 76 Fahrerlaubnis-Verordnung (FeV), Nr. 11a; DGUV Vorschrift 1, § 26 „Zahl und Ausbildung der Ersthelfer“; DGUV Fachbereich Erste Hilfe: FAQ (u. a. Frage 1.4 zur überschrittenen Fortbildungsfrist); ASR A2.2 „Maßnahmen gegen Brände“, Nr. 7.3 Brandschutzhelfer, BAuA (PDF)
 https://www.erstehilfe-worbis.de/ratgeber/ersthelfer-gueltigkeit-wie-lange-gilt-der-kurs/
 
 ## Wissen
