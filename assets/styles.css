@@ -55,3 +55,10 @@ body{background:var(--glas-grund),var(--bg);background-repeat:no-repeat}
 
 /* Tippflaechen >= 44 px (gemessen 360 px: Menue-Knopf 41,4 px durch Flex-Schrumpfen, Start-Link in der Brotkrume 43,9 px) */
 .menu-toggle{flex:0 0 44px}.crumbs a{min-width:44px;justify-content:center}
+
+/* A11y 09.11.2026 (gemessen WCAG AA, hell+dunkel): Pflichtstern 3,57:1 -> brand-lo; KI-Hinweis im Hero hell 1:1 / dunkel 3,83:1 -> dunkle Pille; Kennzahlen-Raster im Dunkelmodus ohne helle Linien */
+.req{color:var(--brand-lo)}
+.field label .req{color:var(--brand-lo)}
+.hero-landschaft .ki-hinweis{padding:2px 8px;border-radius:var(--r-pill);background:rgba(4,47,47,.74)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .stats{background:var(--line);border-color:var(--line)}}
+:root[data-theme=dark] .stats{background:var(--line);border-color:var(--line)}
