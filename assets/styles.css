@@ -77,6 +77,6 @@ figure.card{margin:0}
 @media(max-width:900px){.hero-grid{align-items:stretch}.hero-grid .eyebrow{align-self:flex-start}.hero-actions{width:100%}}
 h1,h2,h3{text-wrap:balance}
 p,li{text-wrap:pretty}
-.prose.artikel{max-width:68ch;margin-inline:auto}
-p.muted a{display:inline-block;padding:14px .25em;margin:-14px -.25em}
+.prose.artikel{max-width:60ch;margin-inline:auto}
+p.muted a{padding-block:14px}
 @media(prefers-reduced-motion:no-preference){@view-transition{navigation:auto}::view-transition-group(root){animation-duration:.2s}.site-header{view-transition-name:kopf}.sticky-cta{view-transition-name:cta}}
