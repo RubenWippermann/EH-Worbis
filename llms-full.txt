@@ -1,6 +1,6 @@
 # Erste Hilfe Worbis — Volltext der Kernseiten
 
-> BWW UG (haftungsbeschränkt), DGUV-Kennziffer 8.2122. Erste-Hilfe-Kurse in Leinefelde-Worbis, im Eichsfeld und in Nordthüringen.
+> BWW UG (haftungsbeschränkt), Ausbildungsstelle Erste Hilfe (Kennziffer 8.2122) für Aus- und Fortbildung in Erster Hilfe. Erste-Hilfe-Kurse in Leinefelde-Worbis, im Eichsfeld und in Nordthüringen.
 
 Stand: Terminliste vom 22.11.2026 (täglich neu abgerufen).
 
@@ -63,7 +63,7 @@ Region: Leinefelde-Worbis, Heilbad Heiligenstadt, Dingelstädt, Niederorschel, T
 ## Häufige Fragen
 
 F: Ist der Kurs für den Führerschein anerkannt?
-A: Ja. Maßgeblich ist § 19 der Fahrerlaubnis-Verordnung (FeV) — er verlangt eine Schulung in Erster Hilfe von mindestens neun Unterrichtseinheiten zu je 45 Minuten. Genau diesen Umfang hat unsere Erste-Hilfe-Ausbildung. Wir sind eine von den Berufsgenossenschaften ermächtigte Ausbildungsstätte (DGUV-Kennziffer 8.2122); die Bescheinigung wird von allen Führerscheinstellen anerkannt — für Pkw, Motorrad, Lkw und Bus gleichermaßen.
+A: Ja. Maßgeblich ist § 19 der Fahrerlaubnis-Verordnung (FeV) — er verlangt eine Schulung in Erster Hilfe von mindestens neun Unterrichtseinheiten zu je 45 Minuten. Genau diesen Umfang hat unsere Erste-Hilfe-Ausbildung. Wir sind eine von den Berufsgenossenschaften ermächtigte Ausbildungsstätte (Kennziffer 8.2122, Aus- und Fortbildung in Erster Hilfe); die Bescheinigung wird von allen Führerscheinstellen anerkannt — für Pkw, Motorrad, Lkw und Bus gleichermaßen.
 
 F: Wie lange ist die Bescheinigung gültig?
 A: § 19 FeV nennt für die Bescheinigung keine Gültigkeitsfrist. Als betriebliche:r Ersthelfer:in musst du in der Regel alle zwei Jahre eine Erste-Hilfe-Fortbildung besuchen. Liegt die letzte Ausbildung oder Fortbildung länger zurück, kann man zunächst weiter als Ersthelfer:in eingesetzt werden; die Fortbildung muss zum nächstmöglichen Zeitpunkt erfolgen ( DGUV Fachbereich Erste Hilfe, FAQ 1.4 ).
@@ -149,8 +149,7 @@ A: Für Lehrkräfte für Erste Hilfe mit gültiger Qualifikation — sie ist sp�
 F: Was, wenn die drei Jahre überschritten sind?
 A: Dann ist die Lehrberechtigung abgelaufen, und die Fortbildung allein reicht nicht mehr. Zur Wiedererlangung ist nach dem DGUV Grundsatz 304-003 (Abschnitt 2.4.3) grundsätzlich eine erneute Grundqualifikation „Fachdidaktische Umsetzung Erste Hilfe“ mit mindestens 32 Unterrichtseinheiten nötig. Meldet euch deshalb rechtzeitig vor dem Fristende — wir schauen gemeinsam in euren Nachweis.
 
-F: Ist der Kurs DGUV-anerkannt?
-A: Nein. Wir orientieren uns am Orientierungsrahmen des DGUV Grundsatzes 304-003 (Anhang 3). Der Kurs ist keine beim QSEH-Portal registrierte Maßnahme.
+
 
 F: Wie hängt der Kurs mit der Arbeitsschutzschulung zusammen?
 A: Die Arbeitsschutzschulung (8 UE, ein Tag) ergänzt diesen Kurs; zusammen ergeben sich 24 UE.
