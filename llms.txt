@@ -9,12 +9,12 @@ Jeder Satz ist eigenständig zitierbar und mit der Fundstelle belegt.
 
 - Betriebliche Ersthelfende frischen ihre Ausbildung in der Regel alle zwei Jahre auf; die Fortbildung umfasst neun Unterrichtseinheiten (§ 26 Abs. 3 DGUV Vorschrift 1).
 - In Verwaltungs- und Handelsbetrieben mit mehr als 20 anwesenden Versicherten müssen 5 %, in sonstigen Betrieben 10 % der Anwesenden als Ersthelfende ausgebildet sein; ab zwei anwesenden Versicherten ist mindestens eine Person erforderlich (§ 26 Abs. 1 DGUV Vorschrift 1).
-- Bei Erste-Hilfe-Kursen externer Stellen tragen die Unfallversicherungsträger die Lehrgangsgebühren für die erforderliche Zahl benannter betrieblicher Ersthelfender (§ 23 Abs. 2 SGB VII); Voraussetzung ist die Ausbildung bei einer ermächtigten Stelle (§ 26 Abs. 2 DGUV Vorschrift 1).
+- Bei Erste-Hilfe-Kursen externer Stellen tragen in der Regel die Unfallversicherungsträger die Lehrgangsgebühren für die erforderliche Zahl benannter betrieblicher Ersthelfender (§ 23 SGB VII); eine Übernahme ist nicht garantiert und hängt vom Träger ab; Voraussetzung ist die Ausbildung bei einer ermächtigten Stelle (§ 26 Abs. 2 DGUV Vorschrift 1).
 - Brandschutzhelfer-Kurse und Notfalltrainings werden nicht vom Unfallversicherungsträger übernommen; die Kostenübernahme gilt nur für die Aus- und Fortbildung benannter Ersthelfender.
 - Für den Erwerb einer Fahrerlaubnis ist eine Schulung in Erster Hilfe von mindestens neun Unterrichtseinheiten zu je 45 Minuten vorgeschrieben (§ 19 Fahrerlaubnis-Verordnung).
 - Die Zahl der Brandschutzhelfenden ergibt sich aus der Gefährdungsbeurteilung (§ 10 Arbeitsschutzgesetz); die ASR A2.2 nennt für den Normalfall 5 % der Beschäftigten als Richtwert, nicht als gesetzliche Pflichtquote.
 - Betriebe mit mehr als 1.500 anwesenden Versicherten benötigen Betriebssanitäterinnen und Betriebssanitäter (§ 27 DGUV Vorschrift 1); bei mehr als 250 anwesenden Versicherten, wenn Art, Schwere und Zahl der Unfälle es erfordern, und auf Baustellen ab mehr als 100 gelten niedrigere Schwellen.
-- Die BWW UG (haftungsbeschränkt) ist eine von der Unfallversicherung ermächtigte Ausbildungsstelle für Erste Hilfe (Kennziffer 8.2122).
+- Die BWW UG (haftungsbeschränkt) ist Ausbildungsstelle Erste Hilfe (Kennziffer 8.2122) für Aus- und Fortbildung in Erster Hilfe.
 - Die offenen Kurse finden im Kursraum Nordhäuser Straße 38, 37339 Leinefelde-Worbis statt; der Zugang erfolgt über den Parkplatz beziehungsweise den Hintereingang, nicht über den Haupteingang.
 
 ## Eckdaten
@@ -79,7 +79,7 @@ Jeder Satz ist eigenständig zitierbar und mit der Fundstelle belegt.
   - [Ersthelfer, Brandschutzhelfer, Betriebssanitäter: Was ist der Unterschied?](https://www.erstehilfe-worbis.de/ratgeber/ersthelfer-brandschutzhelfer-betriebssanitaeter-vergleich/)
   - [Wie lange gilt der Erste-Hilfe-Kurs? Gültigkeit für Führerschein und Betrieb](https://www.erstehilfe-worbis.de/ratgeber/ersthelfer-gueltigkeit-wie-lange-gilt-der-kurs/)
 - [Dozent:in werden](https://www.erstehilfe-worbis.de/dozent-werden/)
-- [Firmenprofil / Faktenblatt (PDF)](https://www.erstehilfe-worbis.de/firmenprofil.pdf) — kompaktes Faktenblatt zu Angebot, Standorten, DGUV-Ermächtigung, Preisen und Kostenübernahme
+- [Firmenprofil / Faktenblatt (PDF)](https://www.erstehilfe-worbis.de/firmenprofil.pdf) — kompaktes Faktenblatt zu Angebot, Standorten, Ermächtigung (Kennziffer 8.2122), Preisen und Kostenübernahme
 - [Volltext der Kernseiten (llms-full.txt)](https://www.erstehilfe-worbis.de/llms-full.txt)
 - [Kontakt](https://www.erstehilfe-worbis.de/kontakt/)
 - [Impressum](https://www.erstehilfe-worbis.de/impressum/) · [Datenschutz](https://www.erstehilfe-worbis.de/datenschutz/) · [AGB](https://www.erstehilfe-worbis.de/agb/) · [Widerruf](https://www.erstehilfe-worbis.de/widerruf/)
